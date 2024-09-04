@@ -1,0 +1,84 @@
+<UserControl
+    x:Class="LiveTune.Views.MainView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:LiveTune.ViewModels"
+    Width="1170"
+    Height="780"
+    x:DataType="vm:MainViewModel"
+    mc:Ignorable="d">
+    <Design.DataContext>
+        <vm:MainViewModel />
+    </Design.DataContext>
+    <Grid ShowGridLines="True">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="210" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Border Background="#f0f0f0" />
+        <Border Grid.Column="1" Background="#f6f6f6">
+            <Grid ShowGridLines="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="72" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="72" />
+                </Grid.RowDefinitions>
+                <Border
+                    Name="PART_Border_TitleBar"
+                    Background="Transparent"
+                    PointerPressed="OnTitleBarPointerPressed">
+                    <DockPanel Background="Transparent" LastChildFill="False">
+                        <Button
+                            Margin="40,0,0,0"
+                            Background="Transparent"
+                            Theme="{StaticResource IconButton}">
+                            <Button.Content>
+                                <PathIcon Data="{StaticResource icon_last}">
+                                    <PathIcon.Styles>
+                                        <Style Selector="Button > PathIcon">
+                                            <Setter Property="PathIcon.Foreground" Value="#7b7b7b" />
+                                        </Style>
+                                        <Style Selector="Button:pointerover > PathIcon">
+                                            <Setter Property="PathIcon.Foreground" Value="Green" />
+                                        </Style>
+                                    </PathIcon.Styles>
+                                </PathIcon>
+                            </Button.Content>
+                        </Button>
+                        <Button Background="Transparent" Theme="{StaticResource IconButton}">
+                            <Button.Content>
+                                <PathIcon Data="{StaticResource icon_next}">
+                                    <PathIcon.Styles>
+                                        <Style Selector="Button > PathIcon">
+                                            <Setter Property="PathIcon.Foreground" Value="#7b7b7b" />
+                                        </Style>
+                                        <Style Selector="Button:pointerover > PathIcon">
+                                            <Setter Property="PathIcon.Foreground" Value="Green" />
+                                        </Style>
+                                    </PathIcon.Styles>
+                                </PathIcon>
+                            </Button.Content>
+                        </Button>
+                        <Button Background="Transparent" Theme="{StaticResource IconButton}">
+                            <Button.Content>
+                                <PathIcon Data="{StaticResource icon_refresh}">
+                                    <PathIcon.Styles>
+                                        <Style Selector="Button > PathIcon">
+                                            <Setter Property="PathIcon.Foreground" Value="#7b7b7b" />
+                                        </Style>
+                                        <Style Selector="Button:pointerover > PathIcon">
+                                            <Setter Property="PathIcon.Foreground" Value="Green" />
+                                        </Style>
+                                    </PathIcon.Styles>
+                                </PathIcon>
+                            </Button.Content>
+                        </Button>
+                        <TextBox />
+                    </DockPanel>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,21 @@
+<Application
+    x:Class="LiveTune.App"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    RequestedThemeVariant="Default">
+    <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
+
+    <Application.Styles>
+        <FluentTheme />
+        <Style>
+            <Style.Resources>
+                <ResourceDictionary>
+                    <ResourceDictionary.MergedDictionaries>
+                        <ResourceInclude Source="/Assets/Icon.axaml" />
+
+                    </ResourceDictionary.MergedDictionaries>
+                </ResourceDictionary>
+            </Style.Resources>
+        </Style>
+    </Application.Styles>
+</Application>
