@@ -2,7 +2,6 @@
     <ControlTheme x:Key="IconButton" TargetType="Button">
         <Setter Property="Cursor" Value="Hand" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <ControlTemplate>
                 <ContentPresenter
@@ -11,6 +10,14 @@
                     Content="{TemplateBinding Content}" />
             </ControlTemplate>
         </Setter>
-
+        <Style Selector="^">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        <Style Selector="^:pointerover">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
     </ControlTheme>
 </ResourceDictionary>

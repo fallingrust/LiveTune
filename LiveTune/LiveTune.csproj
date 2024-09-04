@@ -10,9 +10,7 @@
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <AvaloniaXaml Remove="Assets\ControlThemes.axaml" />
-  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
@@ -24,9 +22,5 @@
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
   </ItemGroup>
 
-  <ItemGroup>
-    <AvaloniaResource Update="Assets\ControlThemes.axaml">
-      <SubType>Designer</SubType>
-    </AvaloniaResource>
-  </ItemGroup>
+
 </Project>

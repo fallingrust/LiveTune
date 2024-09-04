@@ -12,7 +12,7 @@
                 <ResourceDictionary>
                     <ResourceDictionary.MergedDictionaries>
                         <ResourceInclude Source="/Assets/Icon.axaml" />
-
+						<ResourceInclude Source="/Assets/ControlThemes.axaml" />
                     </ResourceDictionary.MergedDictionaries>
                 </ResourceDictionary>
             </Style.Resources>

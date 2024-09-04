@@ -17,7 +17,27 @@
             <ColumnDefinition Width="210" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Border Background="#f0f0f0" />
+        <Border Background="#f0f0f0">
+            <Grid ShowGridLines="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="72" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
+                    <Image
+                        Width="32"
+                        Height="32"
+                        Margin="-6,0,0,0"
+                        Source="/Assets/favicon.png" />
+                    <TextBlock
+                        Margin="6,0,0,0"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        Text="Live Tune" />
+                </StackPanel>
+            </Grid>
+        </Border>
         <Border Grid.Column="1" Background="#f6f6f6">
             <Grid ShowGridLines="True">
                 <Grid.RowDefinitions>
@@ -35,47 +55,159 @@
                             Background="Transparent"
                             Theme="{StaticResource IconButton}">
                             <Button.Content>
-                                <PathIcon Data="{StaticResource icon_last}">
+                                <PathIcon
+                                    Width="12"
+                                    Height="12"
+                                    Data="{StaticResource icon_last}">
                                     <PathIcon.Styles>
                                         <Style Selector="Button > PathIcon">
                                             <Setter Property="PathIcon.Foreground" Value="#7b7b7b" />
                                         </Style>
                                         <Style Selector="Button:pointerover > PathIcon">
-                                            <Setter Property="PathIcon.Foreground" Value="Green" />
+                                            <Setter Property="PathIcon.Foreground" Value="#1fd2a8" />
                                         </Style>
                                     </PathIcon.Styles>
                                 </PathIcon>
                             </Button.Content>
                         </Button>
-                        <Button Background="Transparent" Theme="{StaticResource IconButton}">
+                        <Button
+                            Margin="20,0,0,0"
+                            Background="Transparent"
+                            Theme="{StaticResource IconButton}">
                             <Button.Content>
-                                <PathIcon Data="{StaticResource icon_next}">
+                                <PathIcon
+                                    Width="12"
+                                    Height="12"
+                                    Data="{StaticResource icon_next}">
                                     <PathIcon.Styles>
                                         <Style Selector="Button > PathIcon">
                                             <Setter Property="PathIcon.Foreground" Value="#7b7b7b" />
                                         </Style>
                                         <Style Selector="Button:pointerover > PathIcon">
-                                            <Setter Property="PathIcon.Foreground" Value="Green" />
+                                            <Setter Property="PathIcon.Foreground" Value="#1fd2a8" />
                                         </Style>
                                     </PathIcon.Styles>
                                 </PathIcon>
                             </Button.Content>
                         </Button>
-                        <Button Background="Transparent" Theme="{StaticResource IconButton}">
+                        <Button
+                            Margin="20,0,0,0"
+                            Background="Transparent"
+                            Theme="{StaticResource IconButton}">
                             <Button.Content>
-                                <PathIcon Data="{StaticResource icon_refresh}">
+                                <PathIcon
+                                    Width="12"
+                                    Height="12"
+                                    Data="{StaticResource icon_refresh}">
                                     <PathIcon.Styles>
                                         <Style Selector="Button > PathIcon">
                                             <Setter Property="PathIcon.Foreground" Value="#7b7b7b" />
                                         </Style>
                                         <Style Selector="Button:pointerover > PathIcon">
-                                            <Setter Property="PathIcon.Foreground" Value="Green" />
+                                            <Setter Property="PathIcon.Foreground" Value="#1fd2a8" />
                                         </Style>
                                     </PathIcon.Styles>
                                 </PathIcon>
                             </Button.Content>
                         </Button>
-                        <TextBox />
+                        <TextBox
+                            Width="188"
+                            Height="32"
+                            Margin="20,0,0,0"
+                            HorizontalContentAlignment="Left"
+                            VerticalContentAlignment="Center"
+                            BorderThickness="0"
+                            CornerRadius="12"
+                            FontSize="12"
+                            Watermark="搜索电台">
+                            <TextBox.InnerLeftContent>
+                                <PathIcon
+                                    Width="12"
+                                    Height="12"
+                                    Margin="8,0,0,0"
+                                    Data="{StaticResource icon_search}"
+                                    Foreground="#7b7b7b" />
+                            </TextBox.InnerLeftContent>
+                            <TextBox.Styles>
+                                <Style Selector="TextBox">
+                                    <Setter Property="BorderBrush" Value="Transparent" />
+                                    <Setter Property="Background" Value="#e3e3e3" />
+                                </Style>
+
+                                <Style Selector="TextBox:focus /template/Border#PART_BorderElement">
+                                    <Setter Property="BorderBrush" Value="Transparent" />
+                                </Style>
+                                <Style Selector="TextBox:focus /template/Border#PART_BorderElement">
+                                    <Setter Property="Background" Value="#e3e3e3" />
+                                </Style>
+                                <Style Selector="TextBox:pointerover /template/Border#PART_BorderElement">
+                                    <Setter Property="Background" Value="#e3e3e3" />
+                                </Style>
+                            </TextBox.Styles>
+                        </TextBox>
+                        <Button
+                            Margin="0,0,40,0"
+                            Background="Transparent"
+                            DockPanel.Dock="Right"
+                            Theme="{StaticResource IconButton}">
+                            <Button.Content>
+                                <PathIcon
+                                    Width="12"
+                                    Height="12"
+                                    Data="{StaticResource icon_close}">
+                                    <PathIcon.Styles>
+                                        <Style Selector="Button > PathIcon">
+                                            <Setter Property="PathIcon.Foreground" Value="#7b7b7b" />
+                                        </Style>
+                                        <Style Selector="Button:pointerover > PathIcon">
+                                            <Setter Property="PathIcon.Foreground" Value="#1fd2a8" />
+                                        </Style>
+                                    </PathIcon.Styles>
+                                </PathIcon>
+                            </Button.Content>
+                        </Button>
+                        <Button
+                            Margin="0,0,20,0"
+                            Background="Transparent"
+                            DockPanel.Dock="Right"
+                            Theme="{StaticResource IconButton}">
+                            <Button.Content>
+                                <PathIcon
+                                    Width="12"
+                                    Height="12"
+                                    Data="{StaticResource icon_max}">
+                                    <PathIcon.Styles>
+                                        <Style Selector="Button > PathIcon">
+                                            <Setter Property="PathIcon.Foreground" Value="#7b7b7b" />
+                                        </Style>
+                                        <Style Selector="Button:pointerover > PathIcon">
+                                            <Setter Property="PathIcon.Foreground" Value="#1fd2a8" />
+                                        </Style>
+                                    </PathIcon.Styles>
+                                </PathIcon>
+                            </Button.Content>
+                        </Button>
+                        <Button
+                            Margin="0,0,20,0"
+                            Background="Transparent"
+                            DockPanel.Dock="Right"
+                            Theme="{StaticResource IconButton}">
+                            <Button.Content>
+                                <PathIcon
+                                    Width="12"
+                                    Height="12"
+                                    Data="{StaticResource icon_min}">
+                                    <PathIcon.Styles>
+                                        <Style Selector="Button > PathIcon">
+                                            <Setter Property="PathIcon.Foreground" Value="#7b7b7b" />
+                                        </Style>
+                                        <Style Selector="Button:pointerover > PathIcon">
+                                            <Setter Property="PathIcon.Foreground" Value="#1fd2a8" />
+                                        </Style>
+                                    </PathIcon.Styles>
+                                </PathIcon>
+                            </Button.Content>
+                        </Button>
                     </DockPanel>
                 </Border>
             </Grid>
