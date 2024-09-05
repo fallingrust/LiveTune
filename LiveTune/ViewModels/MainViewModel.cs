@@ -16,15 +16,15 @@ public partial class MainViewModel : ViewModelBase
 
     public MainViewModel()
     {
-          _currentPage = new HomePageViewModel();
-        Task.Run(async () =>
-        {
-            await Task.Delay(4000);
-            Dispatcher.UIThread.Invoke(() =>
-            {
-                CurrentPage = new SearchPageViewModel();
-            });
+        //  _currentPage = new HomePageViewModel();
+        //Task.Run(async () =>
+        //{
+        //    await Task.Delay(4000);
+        //    Dispatcher.UIThread.Invoke(() =>
+        //    {
+        //        CurrentPage = new SearchPageViewModel();
+        //    });
 
-        });
+        //});
     }
 }

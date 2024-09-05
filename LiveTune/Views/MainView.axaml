@@ -36,9 +36,143 @@
                         FontWeight="Bold"
                         Text="Live Tune" />
                 </StackPanel>
+                <ListBox Grid.Row="1" SelectionMode="Single,Toggle">
+                    <ListBoxItem
+                        Margin="8"
+                        CornerRadius="4"
+                        Cursor="Hand">
+                        <StackPanel Orientation="Horizontal">
+                            <PathIcon
+                                Width="12"
+                                Height="12"
+                                Margin="24,0,0,0"
+                                Data="{StaticResource icon_last}">
+                                <PathIcon.Styles>
+                                    <Style Selector="ListBoxItem:pointerover > StackPanel > PathIcon">
+                                        <Setter Property="PathIcon.Foreground" Value="White" />
+                                    </Style>
+                                    <Style Selector="ListBoxItem:selected > StackPanel > PathIcon">
+                                        <Setter Property="PathIcon.Foreground" Value="White" />
+                                    </Style>
+                                </PathIcon.Styles>
+                            </PathIcon>
+                            <TextBlock
+                                Margin="16,0,0,0"
+                                VerticalAlignment="Center"
+                                Text="推荐" />
+                        </StackPanel>
+                        <ListBoxItem.Styles>
+                            <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                                <Setter Property="Background" Value="#06ce74" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Style>
+                            <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                                <Setter Property="Background" Value="#06ce74" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Style>
+                        </ListBoxItem.Styles>
+                    </ListBoxItem>
+                    <ListBoxItem
+                        Margin="8"
+                        CornerRadius="4"
+                        Cursor="Hand">
+                        <StackPanel Orientation="Horizontal">
+                            <PathIcon
+                                Width="12"
+                                Height="12"
+                                Margin="24,0,0,0"
+                                Data="{StaticResource icon_last}">
+                                <PathIcon.Styles>
+                                    <Style Selector="ListBoxItem:pointerover> StackPanel> PathIcon">
+                                        <Setter Property="PathIcon.Foreground" Value="White" />
+                                    </Style>
+                                    <Style Selector="ListBoxItem:selected > StackPanel> PathIcon">
+                                        <Setter Property="PathIcon.Foreground" Value="White" />
+                                    </Style>
+                                </PathIcon.Styles>
+                            </PathIcon>
+                            <TextBlock Margin="16,0,0,0" Text="在线站点" />
+                        </StackPanel>
+                        <ListBoxItem.Styles>
+                            <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                                <Setter Property="Background" Value="#06ce74" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Style>
+                            <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                                <Setter Property="Background" Value="#06ce74" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Style>
+                        </ListBoxItem.Styles>
+                    </ListBoxItem>
+
+                    <ListBoxItem
+                        Margin="8"
+                        CornerRadius="4"
+                        Cursor="Hand">
+                        <StackPanel Orientation="Horizontal">
+                            <PathIcon
+                                Width="12"
+                                Height="12"
+                                Margin="24,0,0,0"
+                                Data="{StaticResource icon_last}">
+                                <PathIcon.Styles>
+                                    <Style Selector="ListBoxItem:pointerover> StackPanel> PathIcon">
+                                        <Setter Property="PathIcon.Foreground" Value="White" />
+                                    </Style>
+                                    <Style Selector="ListBoxItem:selected > StackPanel> PathIcon">
+                                        <Setter Property="PathIcon.Foreground" Value="White" />
+                                    </Style>
+                                </PathIcon.Styles>
+                            </PathIcon>
+                            <TextBlock Margin="16,0,0,0" Text="收藏" />
+                        </StackPanel>
+                        <ListBoxItem.Styles>
+                            <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                                <Setter Property="Background" Value="#06ce74" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Style>
+                            <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                                <Setter Property="Background" Value="#06ce74" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Style>
+                        </ListBoxItem.Styles>
+                    </ListBoxItem>
+                    <ListBoxItem
+                        Margin="8"
+                        CornerRadius="4"
+                        Cursor="Hand">
+                        <StackPanel Orientation="Horizontal">
+                            <PathIcon
+                                Width="12"
+                                Height="12"
+                                Margin="24,0,0,0"
+                                Data="{StaticResource icon_last}">
+                                <PathIcon.Styles>
+                                    <Style Selector="ListBoxItem:pointerover> StackPanel> PathIcon">
+                                        <Setter Property="PathIcon.Foreground" Value="White" />
+                                    </Style>
+                                    <Style Selector="ListBoxItem:selected > StackPanel> PathIcon">
+                                        <Setter Property="PathIcon.Foreground" Value="White" />
+                                    </Style>
+                                </PathIcon.Styles>
+                            </PathIcon>
+                            <TextBlock Margin="16,0,0,0" Text="最近播放" />
+                        </StackPanel>
+                        <ListBoxItem.Styles>
+                            <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                                <Setter Property="Background" Value="#06ce74" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Style>
+                            <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                                <Setter Property="Background" Value="#06ce74" />
+                                <Setter Property="Foreground" Value="White" />
+                            </Style>
+                        </ListBoxItem.Styles>
+                    </ListBoxItem>
+                </ListBox>
             </Grid>
         </Border>
-        <!--  菜单栏  -->
+        <!--  标题栏  -->
         <Border Grid.Column="1" Background="#f6f6f6">
             <Grid ShowGridLines="True">
                 <Grid.RowDefinitions>

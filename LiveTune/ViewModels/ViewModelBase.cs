@@ -1,7 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace LiveTune.ViewModels;
-
-public class ViewModelBase : ObservableObject
+namespace LiveTune.ViewModels
 {
+    public class ViewModelBase : ObservableObject
+    {
+    }
 }
+
+
