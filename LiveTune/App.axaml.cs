@@ -5,6 +5,7 @@ using Avalonia.Markup.Xaml;
 
 using LiveTune.ViewModels;
 using LiveTune.Views;
+using LiveTune.Views.Windows;
 
 namespace LiveTune;
 

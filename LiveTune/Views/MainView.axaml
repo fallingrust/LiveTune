@@ -38,6 +38,7 @@
                 </StackPanel>
             </Grid>
         </Border>
+        <!--  菜单栏  -->
         <Border Grid.Column="1" Background="#f6f6f6">
             <Grid ShowGridLines="True">
                 <Grid.RowDefinitions>
@@ -209,6 +210,10 @@
                             </Button.Content>
                         </Button>
                     </DockPanel>
+                </Border>
+
+                <Border Grid.Row="1" Background="Transparent">
+                    <TransitioningContentControl Content="{Binding CurrentPage}" />
                 </Border>
             </Grid>
         </Border>

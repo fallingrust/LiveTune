@@ -1,6 +1,6 @@
 ﻿using Avalonia.Controls;
 
-namespace LiveTune.Views;
+namespace LiveTune.Views.Windows;
 
 public partial class MainWindow : Window
 {
