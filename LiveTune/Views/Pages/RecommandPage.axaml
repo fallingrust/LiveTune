@@ -17,9 +17,11 @@
             <StackPanel>
                 <Border
                     Width="240"
+                    Height="135"
+                    Background="Red"
                     ClipToBounds="True"
                     CornerRadius="8">
-                    <Image Source="D:\测试媒体文件\Picture\1920x1080.jpg" />
+                    <Image Source="avares://LiveTune/Assets/1.jpg" Stretch="Fill" />
                 </Border>
                 <TextBlock Margin="8,8,0,0" Text="今日热点" />
             </StackPanel>
@@ -28,9 +30,11 @@
             <StackPanel>
                 <Border
                     Width="240"
-                    ClipToBounds="True"
+                    Height="135"
                     CornerRadius="8">
-                    <Image Source="D:\测试媒体文件\Picture\1920x1080.jpg" />
+                    <Border.Background>
+                        <ImageBrush Source="avares://LiveTune/Assets/2.jpg" Stretch="Fill" />
+                    </Border.Background>
                 </Border>
                 <TextBlock Margin="8,8,0,0" Text="最近更新" />
             </StackPanel>
@@ -41,10 +45,21 @@
                     Width="240"
                     ClipToBounds="True"
                     CornerRadius="8">
-                    <Image Source="D:\测试媒体文件\Picture\1920x1080.jpg" />
+                    <Image Source="avares://LiveTune/Assets/3.jpg" Stretch="Fill" />
                 </Border>
                 <TextBlock Margin="8,8,0,0" Text="最多投票" />
             </StackPanel>
         </ListBoxItem>
+        <ListBox.Styles>
+            <Style Selector="ListBoxItem">
+                <Setter Property="Cursor" Value="Hand" />
+            </Style>
+            <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="Transparent" />
+            </Style>
+            <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Background" Value="Transparent" />
+            </Style>
+        </ListBox.Styles>
     </ListBox>
 </UserControl>

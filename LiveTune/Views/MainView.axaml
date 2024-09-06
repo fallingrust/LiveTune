@@ -114,7 +114,8 @@
                     <ListBoxItem
                         Margin="8"
                         CornerRadius="4"
-                        Cursor="Hand">
+                        Cursor="Hand"
+                        Tag="like">
                         <StackPanel Orientation="Horizontal">
                             <PathIcon
                                 Width="16"
@@ -146,7 +147,8 @@
                     <ListBoxItem
                         Margin="8"
                         CornerRadius="4"
-                        Cursor="Hand">
+                        Cursor="Hand"
+                        Tag="recent">
                         <StackPanel Orientation="Horizontal">
                             <PathIcon
                                 Width="16"
@@ -289,6 +291,7 @@
                         <Button
                             Margin="0,0,40,0"
                             Background="Transparent"
+                            Click="OnCloseButtonClick"
                             DockPanel.Dock="Right"
                             Theme="{StaticResource IconButton}">
                             <Button.Content>
@@ -310,6 +313,7 @@
                         <Button
                             Margin="0,0,20,0"
                             Background="Transparent"
+                            Click="OnMaxButtonClick"
                             DockPanel.Dock="Right"
                             Theme="{StaticResource IconButton}">
                             <Button.Content>
@@ -331,6 +335,7 @@
                         <Button
                             Margin="0,0,20,0"
                             Background="Transparent"
+                            Click="OnMinButtonClick"
                             DockPanel.Dock="Right"
                             Theme="{StaticResource IconButton}">
                             <Button.Content>

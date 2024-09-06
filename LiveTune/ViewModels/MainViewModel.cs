@@ -1,9 +1,6 @@
 ﻿using Avalonia.Controls;
-using Avalonia.Threading;
 using LiveTune.Views.Pages;
-using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace LiveTune.ViewModels;
 
@@ -37,6 +34,14 @@ public partial class MainViewModel : ViewModelBase
                 {
                     CurrentPage = new OnlineStationPage();
                 }
+                else if (value.Tag?.ToString() == "recent")
+                {
+                    CurrentPage = new RecentPlayPage();
+                }
+                else if (value.Tag?.ToString() == "like")
+                {
+                    CurrentPage = new LikePage();
+                }
             }
         }
     }
@@ -45,17 +50,6 @@ public partial class MainViewModel : ViewModelBase
 
     public MainViewModel()
     {
-        Queue<string> q = new Queue<string>();
         
-        //  _currentPage = new HomePageViewModel();
-        //Task.Run(async () =>
-        //{
-        //    await Task.Delay(4000);
-        //    Dispatcher.UIThread.Invoke(() =>
-        //    {
-        //        CurrentPage = new SearchPageViewModel();
-        //    });
-
-        //});
     }
 }

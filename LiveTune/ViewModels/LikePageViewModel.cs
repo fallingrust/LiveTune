@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LiveTune.ViewModels
 {
-    public class LikePage : ViewModelBase
+    public class LikePageViewModel : ViewModelBase
     {
     }
 }
