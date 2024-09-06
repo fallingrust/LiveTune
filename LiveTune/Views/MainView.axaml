@@ -5,8 +5,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:LiveTune.ViewModels"
-    Width="1170"
-    Height="780"
+    d:DesignHeight="780"
+    d:DesignWidth="1170"
     x:DataType="vm:MainViewModel"
     mc:Ignorable="d">
     <Design.DataContext>
@@ -36,17 +36,21 @@
                         FontWeight="Bold"
                         Text="Live Tune" />
                 </StackPanel>
-                <ListBox Grid.Row="1" SelectionMode="Single,Toggle">
+                <ListBox
+                    Grid.Row="1"
+                    SelectedItem="{Binding SelectedMenuItem}"
+                    SelectionMode="Single,Toggle">
                     <ListBoxItem
                         Margin="8"
                         CornerRadius="4"
-                        Cursor="Hand">
+                        Cursor="Hand"
+                        Tag="recommand">
                         <StackPanel Orientation="Horizontal">
                             <PathIcon
-                                Width="12"
-                                Height="12"
+                                Width="16"
+                                Height="16"
                                 Margin="24,0,0,0"
-                                Data="{StaticResource icon_last}">
+                                Data="{StaticResource icon_recommand}">
                                 <PathIcon.Styles>
                                     <Style Selector="ListBoxItem:pointerover > StackPanel > PathIcon">
                                         <Setter Property="PathIcon.Foreground" Value="White" />
@@ -75,13 +79,14 @@
                     <ListBoxItem
                         Margin="8"
                         CornerRadius="4"
-                        Cursor="Hand">
+                        Cursor="Hand"
+                        Tag="online">
                         <StackPanel Orientation="Horizontal">
                             <PathIcon
-                                Width="12"
-                                Height="12"
+                                Width="16"
+                                Height="16"
                                 Margin="24,0,0,0"
-                                Data="{StaticResource icon_last}">
+                                Data="{StaticResource icon_online}">
                                 <PathIcon.Styles>
                                     <Style Selector="ListBoxItem:pointerover> StackPanel> PathIcon">
                                         <Setter Property="PathIcon.Foreground" Value="White" />
@@ -111,10 +116,10 @@
                         Cursor="Hand">
                         <StackPanel Orientation="Horizontal">
                             <PathIcon
-                                Width="12"
-                                Height="12"
+                                Width="16"
+                                Height="16"
                                 Margin="24,0,0,0"
-                                Data="{StaticResource icon_last}">
+                                Data="{StaticResource icon_like}">
                                 <PathIcon.Styles>
                                     <Style Selector="ListBoxItem:pointerover> StackPanel> PathIcon">
                                         <Setter Property="PathIcon.Foreground" Value="White" />
@@ -143,10 +148,10 @@
                         Cursor="Hand">
                         <StackPanel Orientation="Horizontal">
                             <PathIcon
-                                Width="12"
-                                Height="12"
+                                Width="16"
+                                Height="16"
                                 Margin="24,0,0,0"
-                                Data="{StaticResource icon_last}">
+                                Data="{StaticResource icon_recent}">
                                 <PathIcon.Styles>
                                     <Style Selector="ListBoxItem:pointerover> StackPanel> PathIcon">
                                         <Setter Property="PathIcon.Foreground" Value="White" />

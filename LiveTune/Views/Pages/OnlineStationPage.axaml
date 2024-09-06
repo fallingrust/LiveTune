@@ -1,0 +1,329 @@
+<UserControl
+    x:Class="LiveTune.Views.Pages.OnlineStationPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <DockPanel LastChildFill="False">
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <ListBox Background="Transparent">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBoxItem IsSelected="True">
+                    <Border
+                        BorderBrush="#e1e1e1"
+                        BorderThickness="1"
+                        CornerRadius="12">
+                        <TextBlock
+                            Margin="20,6,20,6"
+                            FontSize="12"
+                            Text="全部" />
+                        <Border.Styles>
+                            <Style Selector="ListBoxItem:selected >Border">
+                                <Setter Property="Background" Value="#06ce74" />
+                            </Style>
+                        </Border.Styles>
+                    </Border>
+                    <ListBoxItem.Styles>
+                        <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="#06ce74" />
+                        </Style>
+                        <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </ListBoxItem.Styles>
+                </ListBoxItem>
+
+                <ListBoxItem Margin="0">
+                    <Border
+                        BorderBrush="#e1e1e1"
+                        BorderThickness="1"
+                        CornerRadius="12">
+                        <TextBlock
+                            Margin="20,6,20,6"
+                            FontSize="12"
+                            Text="中文" />
+                        <Border.Styles>
+                            <Style Selector="ListBoxItem:selected >Border">
+                                <Setter Property="Background" Value="#06ce74" />
+                            </Style>
+                        </Border.Styles>
+                    </Border>
+                    <ListBoxItem.Styles>
+                        <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="#06ce74" />
+                        </Style>
+                        <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </ListBoxItem.Styles>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <Border
+                        BorderBrush="#e1e1e1"
+                        BorderThickness="1"
+                        CornerRadius="12">
+                        <TextBlock
+                            Margin="20,6,20,6"
+                            FontSize="12"
+                            Text="英文" />
+                        <Border.Styles>
+                            <Style Selector="ListBoxItem:selected >Border">
+                                <Setter Property="Background" Value="#06ce74" />
+                            </Style>
+                        </Border.Styles>
+                    </Border>
+                    <ListBoxItem.Styles>
+                        <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="#06ce74" />
+                        </Style>
+                        <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </ListBoxItem.Styles>
+                </ListBoxItem>
+            </ListBox>
+        </StackPanel>
+
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <ListBox Background="Transparent">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBoxItem IsSelected="True">
+                    <Border
+                        BorderBrush="#e1e1e1"
+                        BorderThickness="1"
+                        CornerRadius="12">
+                        <TextBlock
+                            Margin="20,6,20,6"
+                            FontSize="12"
+                            Text="全部" />
+                        <Border.Styles>
+                            <Style Selector="ListBoxItem:selected >Border">
+                                <Setter Property="Background" Value="#06ce74" />
+                            </Style>
+                        </Border.Styles>
+                    </Border>
+                    <ListBoxItem.Styles>
+                        <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="#06ce74" />
+                        </Style>
+                        <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </ListBoxItem.Styles>
+                </ListBoxItem>
+
+                <ListBoxItem Margin="0">
+                    <Border
+                        BorderBrush="#e1e1e1"
+                        BorderThickness="1"
+                        CornerRadius="12">
+                        <TextBlock
+                            Margin="20,6,20,6"
+                            FontSize="12"
+                            Text="中国" />
+                        <Border.Styles>
+                            <Style Selector="ListBoxItem:selected >Border">
+                                <Setter Property="Background" Value="#06ce74" />
+                            </Style>
+                        </Border.Styles>
+                    </Border>
+                    <ListBoxItem.Styles>
+                        <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="#06ce74" />
+                        </Style>
+                        <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </ListBoxItem.Styles>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <Border
+                        BorderBrush="#e1e1e1"
+                        BorderThickness="1"
+                        CornerRadius="12">
+                        <TextBlock
+                            Margin="20,6,20,6"
+                            FontSize="12"
+                            Text="美国" />
+                        <Border.Styles>
+                            <Style Selector="ListBoxItem:selected >Border">
+                                <Setter Property="Background" Value="#06ce74" />
+                            </Style>
+                        </Border.Styles>
+                    </Border>
+                    <ListBoxItem.Styles>
+                        <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="#06ce74" />
+                        </Style>
+                        <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </ListBoxItem.Styles>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <Border
+                        BorderBrush="#e1e1e1"
+                        BorderThickness="1"
+                        CornerRadius="12">
+                        <TextBlock
+                            Margin="20,6,20,6"
+                            FontSize="12"
+                            Text="英国" />
+                        <Border.Styles>
+                            <Style Selector="ListBoxItem:selected >Border">
+                                <Setter Property="Background" Value="#06ce74" />
+                            </Style>
+                        </Border.Styles>
+                    </Border>
+                    <ListBoxItem.Styles>
+                        <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="#06ce74" />
+                        </Style>
+                        <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </ListBoxItem.Styles>
+                </ListBoxItem>
+            </ListBox>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <ListBox Background="Transparent">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBoxItem IsSelected="True">
+                    <Border
+                        BorderBrush="#e1e1e1"
+                        BorderThickness="1"
+                        CornerRadius="12">
+                        <TextBlock
+                            Margin="20,6,20,6"
+                            FontSize="12"
+                            Text="全部" />
+                        <Border.Styles>
+                            <Style Selector="ListBoxItem:selected >Border">
+                                <Setter Property="Background" Value="#06ce74" />
+                            </Style>
+                        </Border.Styles>
+                    </Border>
+                    <ListBoxItem.Styles>
+                        <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="#06ce74" />
+                        </Style>
+                        <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </ListBoxItem.Styles>
+                </ListBoxItem>
+
+                <ListBoxItem Margin="0">
+                    <Border
+                        BorderBrush="#e1e1e1"
+                        BorderThickness="1"
+                        CornerRadius="12">
+                        <TextBlock
+                            Margin="20,6,20,6"
+                            FontSize="12"
+                            Text="音乐" />
+                        <Border.Styles>
+                            <Style Selector="ListBoxItem:selected >Border">
+                                <Setter Property="Background" Value="#06ce74" />
+                            </Style>
+                        </Border.Styles>
+                    </Border>
+                    <ListBoxItem.Styles>
+                        <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="#06ce74" />
+                        </Style>
+                        <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </ListBoxItem.Styles>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <Border
+                        BorderBrush="#e1e1e1"
+                        BorderThickness="1"
+                        CornerRadius="12">
+                        <TextBlock
+                            Margin="20,6,20,6"
+                            FontSize="12"
+                            Text="新闻" />
+                        <Border.Styles>
+                            <Style Selector="ListBoxItem:selected >Border">
+                                <Setter Property="Background" Value="#06ce74" />
+                            </Style>
+                        </Border.Styles>
+                    </Border>
+                    <ListBoxItem.Styles>
+                        <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="#06ce74" />
+                        </Style>
+                        <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </ListBoxItem.Styles>
+                </ListBoxItem>
+                <ListBoxItem>
+                    <Border
+                        BorderBrush="#e1e1e1"
+                        BorderThickness="1"
+                        CornerRadius="12">
+                        <TextBlock
+                            Margin="20,6,20,6"
+                            FontSize="12"
+                            Text="流行音乐" />
+                        <Border.Styles>
+                            <Style Selector="ListBoxItem:selected >Border">
+                                <Setter Property="Background" Value="#06ce74" />
+                            </Style>
+                        </Border.Styles>
+                    </Border>
+                    <ListBoxItem.Styles>
+                        <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="#06ce74" />
+                        </Style>
+                        <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                            <Setter Property="Foreground" Value="White" />
+                        </Style>
+                    </ListBoxItem.Styles>
+                </ListBoxItem>
+            </ListBox>
+        </StackPanel>
+    </DockPanel>
+</UserControl>

@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace LiveTune.Views.Pages;
 
-public partial class HomePage : UserControl
+public partial class RecentPlayPage : UserControl
 {
-    public HomePage()
+    public RecentPlayPage()
     {
         InitializeComponent();
     }

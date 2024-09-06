@@ -1,0 +1,50 @@
+<UserControl
+    x:Class="LiveTune.Views.Pages.RecommandPage"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <ListBox.ItemsPanel>
+            <ItemsPanelTemplate>
+                <WrapPanel />
+            </ItemsPanelTemplate>
+        </ListBox.ItemsPanel>
+        <ListBoxItem>
+            <StackPanel>
+                <Border
+                    Width="240"
+                    ClipToBounds="True"
+                    CornerRadius="8">
+                    <Image Source="D:\测试媒体文件\Picture\1920x1080.jpg" />
+                </Border>
+                <TextBlock Margin="8,8,0,0" Text="今日热点" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel>
+                <Border
+                    Width="240"
+                    ClipToBounds="True"
+                    CornerRadius="8">
+                    <Image Source="D:\测试媒体文件\Picture\1920x1080.jpg" />
+                </Border>
+                <TextBlock Margin="8,8,0,0" Text="最近更新" />
+            </StackPanel>
+        </ListBoxItem>
+        <ListBoxItem>
+            <StackPanel>
+                <Border
+                    Width="240"
+                    ClipToBounds="True"
+                    CornerRadius="8">
+                    <Image Source="D:\测试媒体文件\Picture\1920x1080.jpg" />
+                </Border>
+                <TextBlock Margin="8,8,0,0" Text="最多投票" />
+            </StackPanel>
+        </ListBoxItem>
+    </ListBox>
+</UserControl>

@@ -8,7 +8,7 @@
     <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <ApplicationIcon>favicon.ico</ApplicationIcon>
-    <PackageIcon>favicon.png</PackageIcon>
+    <PackageIcon>favicon.png</PackageIcon>   
   </PropertyGroup>
   <ItemGroup>
     <None Remove="favicon.ico" />
