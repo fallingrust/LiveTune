@@ -3,6 +3,7 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:livetune="using:LiveTune"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="clr-namespace:LiveTune.ViewModels"
     d:DesignHeight="780"
@@ -12,7 +13,7 @@
     <Design.DataContext>
         <vm:MainViewModel />
     </Design.DataContext>
-    <Grid ShowGridLines="True">
+    <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="210" />
             <ColumnDefinition Width="*" />
@@ -179,7 +180,7 @@
         </Border>
         <!--  标题栏  -->
         <Border Grid.Column="1" Background="#f6f6f6">
-            <Grid ShowGridLines="True">
+            <Grid ShowGridLines="False">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="72" />
                     <RowDefinition Height="*" />
@@ -353,6 +354,12 @@
 
                 <Border Grid.Row="1" Background="Transparent">
                     <TransitioningContentControl Content="{Binding CurrentPage}" />
+                </Border>
+                <Border
+                    Grid.Row="2"
+                    BorderBrush="#06ce74"
+                    BorderThickness="0,1,0,0">
+                    <livetune:PlayCardControl />
                 </Border>
             </Grid>
         </Border>

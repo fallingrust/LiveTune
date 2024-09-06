@@ -1,0 +1,136 @@
+<UserControl
+    x:Class="LiveTune.PlayCardControl"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="60"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid ShowGridLines="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Orientation="Horizontal">
+            <Border
+                Width="40"
+                Height="40"
+                Margin="40,0,0,0"
+                CornerRadius="6">
+                <Image asyncImageLoader:ImageLoader.Source="http://m.ajmide.com/favicon.ico" />
+            </Border>
+            <TextBlock
+                Margin="10,0,0,0"
+                VerticalAlignment="Center"
+                Text="1111" />
+        </StackPanel>
+        <ToggleButton
+            Grid.Column="1"
+            Width="35"
+            Height="35"
+            HorizontalAlignment="Center"
+            Background="#06ce74"
+            CornerRadius="100"
+            Cursor="Hand">
+            <PathIcon
+                Width="12"
+                Height="12"
+                Foreground="White">
+                <PathIcon.Styles>
+                    <Style Selector="ToggleButton > PathIcon">
+                        <Setter Property="PathIcon.Data" Value="{StaticResource icon_play_fill}" />
+                    </Style>
+                    <Style Selector="ToggleButton:checked >PathIcon">
+                        <Setter Property="PathIcon.Data" Value="{StaticResource icon_pause}" />
+                    </Style>
+                </PathIcon.Styles>
+            </PathIcon>
+            <ToggleButton.Styles>
+
+                <Style Selector="ToggleButton:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="#06ce74" />
+                </Style>
+                <Style Selector="ToggleButton:checked /template/ContentPresenter#PART_ContentPresenter,ToggleButton:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="#06ce74" />
+                </Style>
+            </ToggleButton.Styles>
+        </ToggleButton>
+        <StackPanel
+            Grid.Column="2"
+            Margin="0,0,40,0"
+            HorizontalAlignment="Right"
+            Orientation="Horizontal">
+
+            <ToggleButton
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                Background="Transparent"
+                Cursor="Hand">
+                <PathIcon
+                    Width="16"
+                    Height="16"
+                    Data="{StaticResource icon_like}">
+                    <PathIcon.Styles>
+                        <Style Selector="ToggleButton > PathIcon">
+                            <Setter Property="PathIcon.Foreground" Value="#7b7b7b" />
+                        </Style>
+                        <Style Selector="ToggleButton:checked >PathIcon">
+                            <Setter Property="PathIcon.Foreground" Value="red" />
+                        </Style>
+                    </PathIcon.Styles>
+                </PathIcon>
+                <ToggleButton.Styles>
+
+                    <Style Selector="ToggleButton:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                        <Setter Property="Background" Value="Transparent" />
+                    </Style>
+                    <Style Selector="ToggleButton:checked /template/ContentPresenter#PART_ContentPresenter,ToggleButton:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                        <Setter Property="Background" Value="Transparent" />
+                    </Style>
+                </ToggleButton.Styles>
+            </ToggleButton>
+
+            <ToggleButton
+                Grid.Column="1"
+                Margin="0,0,4,0"
+                HorizontalAlignment="Center"
+                Background="Transparent"
+                Cursor="Hand">
+                <PathIcon
+                    Width="16"
+                    Height="16"
+                    Data="{StaticResource icon_volume}">
+                    <PathIcon.Styles>
+                        <Style Selector="ToggleButton > PathIcon">
+                            <Setter Property="PathIcon.Foreground" Value="#7b7b7b" />
+                        </Style>
+                        <Style Selector="ToggleButton:checked >PathIcon">
+                            <Setter Property="PathIcon.Foreground" Value="#06ce74" />
+                        </Style>
+                        <Style Selector="ToggleButton:pointerover >PathIcon">
+                            <Setter Property="PathIcon.Foreground" Value="#06ce74" />
+                        </Style>
+                    </PathIcon.Styles>
+                </PathIcon>
+                <ToggleButton.Styles>
+                    <Style Selector="ToggleButton:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                        <Setter Property="Background" Value="Transparent" />
+                    </Style>
+                    <Style Selector="ToggleButton:checked /template/ContentPresenter#PART_ContentPresenter,ToggleButton:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                        <Setter Property="Background" Value="Transparent" />
+                    </Style>
+                </ToggleButton.Styles>
+            </ToggleButton>
+            <TextBlock
+                VerticalAlignment="Center"
+                Foreground="#7b7b7b"
+                Text="00:00:00" />
+
+        </StackPanel>
+
+    </Grid>
+</UserControl>

@@ -2,6 +2,7 @@
     x:Class="LiveTune.Views.Pages.OnlineStationPage"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:LiveTune.Views.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
@@ -96,7 +97,6 @@
                 </ListBoxItem>
             </ListBox>
         </StackPanel>
-
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <ListBox Background="Transparent">
                 <ListBox.ItemsPanel>
@@ -325,5 +325,9 @@
                 </ListBoxItem>
             </ListBox>
         </StackPanel>
+
+        <Border DockPanel.Dock="Top">
+            <controls:StationListControl />
+        </Border>
     </DockPanel>
 </UserControl>
