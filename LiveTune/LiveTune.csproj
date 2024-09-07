@@ -10,12 +10,6 @@
     <AvaloniaResource Include="Assets\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Remove="Assets\1.jpg" />
-    <None Remove="Assets\2.jpg" />
-    <None Remove="Assets\3.jpg" />
-  </ItemGroup>
-
 
 
   <ItemGroup>
@@ -32,14 +26,38 @@
 
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Views\Pages\RecommandPage.axaml" />
+    <ProjectReference Include="..\RadioBrowserSharp\RadioBrowserSharp\RadioBrowserSharp.csproj" />
   </ItemGroup>
 
 
 
   <ItemGroup>
-    <ProjectReference Include="..\RadioBrowserSharp\RadioBrowserSharp\RadioBrowserSharp.csproj" />
+    <AvaloniaResource Update="Assets\Resources.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </AvaloniaResource>
+    <AvaloniaResource Update="Assets\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </AvaloniaResource>
   </ItemGroup>
 
+      <ItemGroup>
+	      <Compile Update="Assets\Resources.Designer.cs">
+              <DesignTime>True</DesignTime>
+              <AutoGen>True</AutoGen>
+              <DependentUpon>Resources.resx</DependentUpon>
+        </Compile>
+	
+      </ItemGroup>
+	
+    <ItemGroup>
+	    <EmbeddedResource Update="Assets\Resources.resx">
+		    <Generator>ResXFileCodeGenerator</Generator>
+		    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+	    </EmbeddedResource>
+	    <EmbeddedResource Update="Assets\Resources.zh.resx">
+	      <Generator>PublicResXFileCodeGenerator</Generator>
+	    </EmbeddedResource>
+    </ItemGroup>
 
 </Project>

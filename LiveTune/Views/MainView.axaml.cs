@@ -9,6 +9,7 @@ public partial class MainView : UserControl
     public MainView()
     {
         InitializeComponent();
+        this.TryFindResource("Greeting", out var res);
     }
 
     private void OnTitleBarPointerPressed(object? sender, Avalonia.Input.PointerPressedEventArgs e)
