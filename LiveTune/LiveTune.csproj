@@ -36,4 +36,10 @@
   </ItemGroup>
 
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\RadioBrowserSharp\RadioBrowserSharp\RadioBrowserSharp.csproj" />
+  </ItemGroup>
+
+
 </Project>

@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiveTune", "LiveTune\LiveTu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiveTune.Desktop", "LiveTune.Desktop\LiveTune.Desktop.csproj", "{0122DA76-E0D1-4FEC-8C5E-8740AD00736B}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadioBrowserSharp", "RadioBrowserSharp\RadioBrowserSharp\RadioBrowserSharp.csproj", "{995805EB-4F66-4C64-81CD-9FD9F4517769}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0122DA76-E0D1-4FEC-8C5E-8740AD00736B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0122DA76-E0D1-4FEC-8C5E-8740AD00736B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0122DA76-E0D1-4FEC-8C5E-8740AD00736B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{995805EB-4F66-4C64-81CD-9FD9F4517769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{995805EB-4F66-4C64-81CD-9FD9F4517769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{995805EB-4F66-4C64-81CD-9FD9F4517769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{995805EB-4F66-4C64-81CD-9FD9F4517769}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

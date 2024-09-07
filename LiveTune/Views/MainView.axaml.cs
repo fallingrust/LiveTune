@@ -1,8 +1,6 @@
-﻿using Avalonia;
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
 using System;
-using System.Xml.Linq;
 
 namespace LiveTune.Views;
 
