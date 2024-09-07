@@ -101,6 +101,7 @@ namespace LiveTune.ViewModels
 
         public async Task LoadNextPageAsync()
         {
+            if (Loading) return;
             Loading = true;
             _offset += LIMIT;
             var param = new ListStationsParams()
