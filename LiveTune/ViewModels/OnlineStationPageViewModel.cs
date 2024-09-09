@@ -88,7 +88,7 @@ namespace LiveTune.ViewModels
                     var item = new StationListItem()
                     {
                         ClickCount = station.ClickCount,
-                        FaviconUrl = station.Favicon,
+                        FaviconUrl = string.IsNullOrWhiteSpace(station.Favicon) ? "avares://LiveTune/Assets/favicon.png" : station.Favicon,
                         Language = station.Language,
                         StationName = station.Name.Trim(),
                         VoteCount = station.Votes,
