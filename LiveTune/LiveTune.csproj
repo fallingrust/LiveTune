@@ -1,63 +1,66 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <LangVersion>latest</LangVersion>
-    <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <AvaloniaResource Include="Assets\**" />
-  </ItemGroup>
-
-
-
-  <ItemGroup>
-    <PackageReference Include="AsyncImageLoader.Avalonia" Version="3.3.0" />
-    <PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
-
-    <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-    <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
-  </ItemGroup>
+	<ItemGroup>
+		<AvaloniaResource Include="Assets\**" />
+	</ItemGroup>
 
 
 
-  <ItemGroup>
-    <ProjectReference Include="..\RadioBrowserSharp\RadioBrowserSharp\RadioBrowserSharp.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="AsyncImageLoader.Avalonia" Version="3.3.0" />
+		<PackageReference Include="Avalonia" Version="$(AvaloniaVersion)" />
+		<PackageReference Include="Avalonia.Themes.Fluent" Version="$(AvaloniaVersion)" />
+		<PackageReference Include="Avalonia.Fonts.Inter" Version="$(AvaloniaVersion)" />
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+
+		<!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+		<PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+	</ItemGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='Release'">
+		<DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\LiveTune.Player\LiveTune.Player.csproj" />
+		<ProjectReference Include="..\RadioBrowserSharp\RadioBrowserSharp\RadioBrowserSharp.csproj" />
+	</ItemGroup>
 
 
 
-  <ItemGroup>
-    <AvaloniaResource Update="Assets\Resources.en.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-    </AvaloniaResource>
-    <AvaloniaResource Update="Assets\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </AvaloniaResource>
-  </ItemGroup>
+	<ItemGroup>
+		<AvaloniaResource Update="Assets\Resources.en.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+		</AvaloniaResource>
+		<AvaloniaResource Update="Assets\Resources.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</AvaloniaResource>
+	</ItemGroup>
 
-      <ItemGroup>
-	      <Compile Update="Assets\Resources.Designer.cs">
-              <DesignTime>True</DesignTime>
-              <AutoGen>True</AutoGen>
-              <DependentUpon>Resources.resx</DependentUpon>
-        </Compile>
-	
-      </ItemGroup>
-	
-    <ItemGroup>
-	    <EmbeddedResource Update="Assets\Resources.resx">
-		    <Generator>ResXFileCodeGenerator</Generator>
-		    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-	    </EmbeddedResource>
-	    <EmbeddedResource Update="Assets\Resources.zh.resx">
-	      <Generator>PublicResXFileCodeGenerator</Generator>
-	    </EmbeddedResource>
-    </ItemGroup>
+	<ItemGroup>
+		<Compile Update="Assets\Resources.Designer.cs">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Update="Assets\Resources.resx">
+			<Generator>ResXFileCodeGenerator</Generator>
+			<LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<EmbeddedResource Update="Assets\Resources.zh.resx">
+			<Generator>PublicResXFileCodeGenerator</Generator>
+		</EmbeddedResource>
+	</ItemGroup>
 
 </Project>
