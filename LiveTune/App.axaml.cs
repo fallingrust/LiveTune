@@ -23,7 +23,10 @@ public partial class App : Application
     {
         AllocConsole();
         Assets.Resources.Culture = new CultureInfo("zh");
-   
+       var _vlc = new LibVLC(true);
+      var  _media = new Media(_vlc, new Uri("http://as-hls-ww-live.akamaized.net/pool_904/live/ww/bbc_radio_five_live/bbc_radio_five_live.isml/bbc_radio_five_live-audio%3d96000.norewind.m3u8"));
+      var  _player = new MediaPlayer(_media);
+        _player.Play();
         BindingPlugins.DataValidators.RemoveAt(0);       
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
