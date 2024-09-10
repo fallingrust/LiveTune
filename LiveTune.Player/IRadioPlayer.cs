@@ -4,6 +4,9 @@ namespace LiveTune.Player
 {
     public interface IRadioPlayer : IDisposable
     {
+        event TimeChangedEventArgs? TimeChanged;
+        event BufferingChangedEventArgs? BufferingChanged;
+        event StatusChangedEventArgs? StatusChanged;
         void Play();
 
         void Stop();

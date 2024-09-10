@@ -17,5 +17,7 @@ namespace LiveTune.Models
         public int VoteCount { get => _voteCount; set => SetProperty(ref _voteCount, value); }
 
         public string FaviconUrl { get => _faviconUrl; set => SetProperty(ref _faviconUrl, value); }
+
+        public string Url { get; set; } = string.Empty;
     }
 }

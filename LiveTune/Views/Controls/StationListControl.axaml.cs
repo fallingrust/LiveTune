@@ -1,6 +1,7 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using CommunityToolkit.Mvvm.Messaging;
 using LiveTune.Models;
 using System;
 using System.Collections.Generic;
@@ -16,32 +17,9 @@ public partial class StationListControl : UserControl
 
     public event EventHandler<RoutedEventArgs> LoadMore{add => AddHandler(LoadMoreEvent, value);remove => RemoveHandler(LoadMoreEvent, value); }
 
-   
-    //private  ScrollViewer? _scrollViewer;
     public StationListControl()
     {
-        InitializeComponent();
-        //ItemSource = new ObservableCollection<StationListItem>()
-        //{
-        //    new StationListItem(){ StationName = "1111",  Language="中文", ClickCount= 100, VoteCount = 58,  FaviconUrl="http://m.ajmide.com/favicon.ico" },
-        //    new StationListItem(){ StationName = "1111", Language="中文", ClickCount= 100, VoteCount = 58 , FaviconUrl="http://m.ajmide.com/favicon.ico"},
-        //    new StationListItem(){ StationName = "1112221", Language="中文", ClickCount= 100, VoteCount = 58, FaviconUrl="http://m.ajmide.com/favicon.ico"},
-        //    new StationListItem(){ StationName = "1112221", Language="中文", ClickCount= 100, VoteCount = 58, FaviconUrl="http://m.ajmide.com/favicon.ico"},
-        //    new StationListItem(){ StationName = "1112221", Language="中文", ClickCount= 100, VoteCount = 58, FaviconUrl="http://m.ajmide.com/favicon.ico"},
-        //    new StationListItem(){ StationName = "1112221", Language="中文", ClickCount= 100, VoteCount = 58, FaviconUrl="http://m.ajmide.com/favicon.ico"},
-        //    new StationListItem(){ StationName = "1112221", Language="中文", ClickCount= 100, VoteCount = 58, FaviconUrl="http://m.ajmide.com/favicon.ico"},
-        //    new StationListItem(){ StationName = "1112221", Language="中文", ClickCount= 100, VoteCount = 58, FaviconUrl="http://m.ajmide.com/favicon.ico"},
-        //    new StationListItem(){ StationName = "1112221", Language="中文", ClickCount= 100, VoteCount = 58, FaviconUrl="http://m.ajmide.com/favicon.ico"},
-
-        //    new StationListItem(){ StationName = "1112221", Language="中文", ClickCount= 100, VoteCount = 58, FaviconUrl="http://m.ajmide.com/favicon.ico"},
-        //    new StationListItem(){ StationName = "1112221", Language="中文", ClickCount= 100, VoteCount = 58, FaviconUrl="http://m.ajmide.com/favicon.ico"},
-        //    new StationListItem(){ StationName = "1112221", Language="中文", ClickCount= 100, VoteCount = 58, FaviconUrl="http://m.ajmide.com/favicon.ico"},
-        //    new StationListItem(){ StationName = "1112221", Language="中文", ClickCount= 100, VoteCount = 58, FaviconUrl="http://m.ajmide.com/favicon.ico"},
-        //    new StationListItem(){ StationName = "1112221", Language="中文", ClickCount= 100, VoteCount = 58, FaviconUrl="http://m.ajmide.com/favicon.ico"},
-        //    new StationListItem(){ StationName = "1112221", Language="中文", ClickCount= 100, VoteCount = 58, FaviconUrl="http://m.ajmide.com/favicon.ico"},
-        //    new StationListItem(){ StationName = "1112221", Language="中文", ClickCount= 100, VoteCount = 58, FaviconUrl="http://m.ajmide.com/favicon.ico"},
-        //};
-        //PART_ListBox_StationList.Loaded += OnStationListLoaded;
+        InitializeComponent();       
         PART_ListBox_StationList.PointerWheelChanged += OnStationListPointerWheelChanged;
     }
 
@@ -54,10 +32,19 @@ public partial class StationListControl : UserControl
         }
     }
 
+    private void OnPlayButtonClick(object? sender, RoutedEventArgs e)
+    {
+        if(sender is Button btn && btn.DataContext is StationListItem item)
+        {
+            WeakReferenceMessenger.Default.Send(new Messages.RadioPlayMessage(item));
+        }
+        //
+    }
+
     //private void OnStationListLoaded(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
     //{
     //    _scrollViewer = PART_ListBox_StationList.GetTemplateChildren().FirstOrDefault(p => p.Name == "PART_ScrollViewer") as ScrollViewer;
-       
+
     //    if (_scrollViewer != null)
     //    {
     //        _scrollViewer.ScrollChanged += OnScrollChanged;

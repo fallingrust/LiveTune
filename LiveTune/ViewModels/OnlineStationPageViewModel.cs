@@ -85,6 +85,7 @@ namespace LiveTune.ViewModels
                 foreach (var station in stations)
                 {
                     if (string.IsNullOrWhiteSpace(station.Name)) continue;
+                    if (string.IsNullOrWhiteSpace(station.Url)) continue;
                     var item = new StationListItem()
                     {
                         ClickCount = station.ClickCount,
@@ -92,7 +93,8 @@ namespace LiveTune.ViewModels
                         Language = station.Language,
                         StationName = station.Name.Trim(),
                         VoteCount = station.Votes,
-                    };
+                        Url = station.Url,
+                    };                    
                    StationItemSource.Add(item);
                 }
             }

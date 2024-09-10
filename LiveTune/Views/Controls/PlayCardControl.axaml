@@ -3,11 +3,20 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
+    xmlns:converters="using:LiveTune.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:LiveTune.ViewModels"
     d:DesignHeight="60"
     d:DesignWidth="800"
+    x:DataType="viewmodels:PlayCardViewModel"
     mc:Ignorable="d">
+    <UserControl.DataContext>
+        <viewmodels:PlayCardViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <converters:MillisecondToTimeStringConverter x:Key="MillisecondToTimeStringConverter" />
+    </UserControl.Resources>
     <Grid ShowGridLines="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -21,12 +30,16 @@
                 Height="40"
                 Margin="40,0,0,0"
                 CornerRadius="6">
-                <Image asyncImageLoader:ImageLoader.Source="http://m.ajmide.com/favicon.ico" />
+                <Image
+                    Width="20"
+                    Height="20"
+                    Margin="8,0,0,0"
+                    asyncImageLoader:ImageLoader.Source="{Binding FaviconUrl}" />
             </Border>
             <TextBlock
                 Margin="10,0,0,0"
                 VerticalAlignment="Center"
-                Text="1111" />
+                Text="{Binding Title}" />
         </StackPanel>
         <ToggleButton
             Grid.Column="1"
@@ -35,7 +48,8 @@
             HorizontalAlignment="Center"
             Background="#06ce74"
             CornerRadius="100"
-            Cursor="Hand">
+            Cursor="Hand"
+            IsChecked="{Binding IsPlaying}">
             <PathIcon
                 Width="12"
                 Height="12"
@@ -128,7 +142,7 @@
             <TextBlock
                 VerticalAlignment="Center"
                 Foreground="#7b7b7b"
-                Text="00:00:00" />
+                Text="{Binding PlayTime, Converter={StaticResource MillisecondToTimeStringConverter}}" />
 
         </StackPanel>
 

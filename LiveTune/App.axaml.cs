@@ -1,15 +1,14 @@
 ﻿using Avalonia;
-using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using Avalonia.Media;
+using LibVLCSharp.Shared;
 using LiveTune.ViewModels;
 using LiveTune.Views;
 using LiveTune.Views.Windows;
 using System;
 using System.Globalization;
-using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 namespace LiveTune;
 
@@ -22,11 +21,10 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
-        // Line below is needed to remove Avalonia data validation.
-        // Without this line you will get duplicate validations from both Avalonia and CT
+        AllocConsole();
         Assets.Resources.Culture = new CultureInfo("zh");
-        BindingPlugins.DataValidators.RemoveAt(0);
-    
+   
+        BindingPlugins.DataValidators.RemoveAt(0);       
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             desktop.MainWindow = new MainWindow
@@ -44,4 +42,8 @@ public partial class App : Application
 
         base.OnFrameworkInitializationCompleted();
     }
+    [DllImport("kernel32.dll")]
+    public static extern bool AllocConsole();
+
+
 }

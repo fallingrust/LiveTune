@@ -11,9 +11,9 @@
 	</PropertyGroup>
 	
 	<ItemGroup>
-		<None Include="runtimes\win-x64\native\*.*" CopyToOutputDirectory="PreserveNewest"  Link="%(Filename)%(Extension)" Condition="$([MSBuild]::IsOSPlatform('Windows')) AND $(Platform) == 'AnyCPU'">
+		<None Include="runtimes\win-x64\native\*.*" CopyToOutputDirectory="PreserveNewest"  Link="libvlc\win-x64\%(Filename)%(Extension)" Condition="$([MSBuild]::IsOSPlatform('Windows')) AND $(Platform) == 'AnyCPU'">
 		</None>
-		<None Include="runtimes\win-x64\native\plugins\**" CopyToOutputDirectory="PreserveNewest"  Link="plugins\%(RecursiveDir)\%(Filename)%(Extension)" Condition="$([MSBuild]::IsOSPlatform('Windows')) AND $(Platform) == 'AnyCPU'">			
+		<None Include="runtimes\win-x64\native\plugins\**" CopyToOutputDirectory="PreserveNewest"  Link="libvlc\win-x64\plugins\%(RecursiveDir)\%(Filename)%(Extension)" Condition="$([MSBuild]::IsOSPlatform('Windows')) AND $(Platform) == 'AnyCPU'">			
 		</None>		
 	</ItemGroup>
 	

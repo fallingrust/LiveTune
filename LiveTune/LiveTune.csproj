@@ -10,6 +10,10 @@
 		<AvaloniaResource Include="Assets\**" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <AvaloniaXaml Remove="Assets\Converters.axaml" />
+	</ItemGroup>
+
 
 
 	<ItemGroup>
@@ -35,6 +39,9 @@
 
 
 	<ItemGroup>
+		<AvaloniaResource Update="Assets\Converters.axaml">
+		  <SubType>Designer</SubType>
+		</AvaloniaResource>
 		<AvaloniaResource Update="Assets\Resources.en.resx">
 			<Generator>PublicResXFileCodeGenerator</Generator>
 		</AvaloniaResource>

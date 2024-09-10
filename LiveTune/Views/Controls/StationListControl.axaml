@@ -60,6 +60,7 @@
                             <Button
                                 Margin="0,0,20,0"
                                 Background="Transparent"
+                                Click="OnPlayButtonClick"
                                 Theme="{StaticResource IconButton}">
                                 <Button.Content>
                                     <PathIcon
