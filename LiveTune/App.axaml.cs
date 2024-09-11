@@ -28,6 +28,7 @@ public partial class App : Application
             {
                 DataContext = new MainViewModel()
             };
+            DataContext = new ApplicationViewModel();
         }
         else if (ApplicationLifetime is ISingleViewApplicationLifetime singleViewPlatform)
         {

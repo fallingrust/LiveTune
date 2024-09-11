@@ -61,11 +61,29 @@ namespace LiveTune.Assets {
         }
         
         /// <summary>
-        ///   查找类似 TEST 的本地化字符串。
+        ///   查找类似 正在连接到广播站点... 的本地化字符串。
         /// </summary>
-        public static string Greeting {
+        public static string ConnectingToRadioStation {
             get {
-                return ResourceManager.GetString("Greeting", resourceCulture);
+                return ResourceManager.GetString("ConnectingToRadioStation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 打开主界面 的本地化字符串。
+        /// </summary>
+        public static string OpenMainWindow {
+            get {
+                return ResourceManager.GetString("OpenMainWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 退出 的本地化字符串。
+        /// </summary>
+        public static string Quit {
+            get {
+                return ResourceManager.GetString("Quit", resourceCulture);
             }
         }
     }

@@ -89,12 +89,12 @@ namespace LiveTune.ViewModels
                     var item = new StationListItem()
                     {
                         ClickCount = station.ClickCount,
-                        FaviconUrl = string.IsNullOrWhiteSpace(station.Favicon) ? "avares://LiveTune/Assets/favicon.png" : station.Favicon,
-                        Language = station.Language,
+                        FaviconUrl = string.IsNullOrWhiteSpace(station.Favicon) || !station.Favicon.StartsWith("http") ? "avares://LiveTune/Assets/favicon.png" : station.Favicon,
+                        Language = string.IsNullOrWhiteSpace(station.Language)? "-": station.Language,
                         StationName = station.Name.Trim(),
                         VoteCount = station.Votes,
                         Url = station.Url,
-                    };                    
+                    }; ;                   
                    StationItemSource.Add(item);
                 }
             }

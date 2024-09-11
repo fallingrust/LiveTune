@@ -2,6 +2,7 @@
     x:Class="LiveTune.PlayCardControl"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:assets="clr-namespace:LiveTune.Assets"
     xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
     xmlns:converters="using:LiveTune.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -39,7 +40,13 @@
             <TextBlock
                 Margin="10,0,0,0"
                 VerticalAlignment="Center"
+                IsVisible="{Binding !Buffering}"
                 Text="{Binding Title}" />
+            <TextBlock
+                Margin="10,0,0,0"
+                VerticalAlignment="Center"
+                IsVisible="{Binding Buffering}"
+                Text="{x:Static assets:Resources.ConnectingToRadioStation}" />
         </StackPanel>
         <ToggleButton
             Grid.Column="1"
@@ -47,9 +54,10 @@
             Height="35"
             HorizontalAlignment="Center"
             Background="#06ce74"
+            Click="OnPlayToggleButtonClick"
             CornerRadius="100"
             Cursor="Hand"
-            IsChecked="{Binding IsPlaying}">
+            IsChecked="{Binding IsPlaying, Mode=OneWay}">
             <PathIcon
                 Width="12"
                 Height="12"
@@ -78,7 +86,6 @@
             Margin="0,0,40,0"
             HorizontalAlignment="Right"
             Orientation="Horizontal">
-
             <ToggleButton
                 Grid.Column="1"
                 HorizontalAlignment="Center"
@@ -140,6 +147,7 @@
                 </ToggleButton.Styles>
             </ToggleButton>
             <TextBlock
+                Width="64"
                 VerticalAlignment="Center"
                 Foreground="#7b7b7b"
                 Text="{Binding PlayTime, Converter={StaticResource MillisecondToTimeStringConverter}}" />

@@ -117,7 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Greeting" xml:space="preserve">
-    <value>HelloWorld</value>
+  <data name="ConnectingToRadioStation" xml:space="preserve">
+    <value>Connecting to radio station</value>
+  </data>
+  <data name="OpenMainWindow" xml:space="preserve">
+    <value>Open Main Window</value>
+  </data>
+  <data name="Quit" xml:space="preserve">
+    <value>Quit</value>
   </data>
 </root>

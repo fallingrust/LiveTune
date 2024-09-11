@@ -12,10 +12,16 @@ namespace LiveTune.ViewModels
         private long _playTime = 0;
         private string _faviconUrl = string.Empty;
         private string _url = string.Empty;
+        private bool _buffering = false;
+        
         public string FaviconUrl { get => _faviconUrl; set => SetProperty(ref _faviconUrl, value); }
         public string Title { get => _title; set => SetProperty(ref _title, value); }
         public bool IsPlaying { get => _isPlaying; set => SetProperty(ref _isPlaying, value); }
         public long PlayTime { get => _playTime; set => SetProperty(ref _playTime, value); }
+
+        public bool Buffering { get => _buffering; set => SetProperty(ref _buffering, value); }
+        
+
         public string Url
         {
             get => _url;
@@ -29,7 +35,7 @@ namespace LiveTune.ViewModels
             }
         }
         
-        private IRadioPlayer? _radioPlayer;
+        public IRadioPlayer? RadioPlayer { get; private set; }
         
         public PlayCardViewModel()
         {
@@ -39,11 +45,11 @@ namespace LiveTune.ViewModels
         private void CreatePlayer(string url)
         {
             ReleasePlayer();
-            _radioPlayer ??= new VlcRadioPlayer(url);
-            _radioPlayer.StatusChanged += OnRadioPlayerStatusChanged;
-            _radioPlayer.TimeChanged += OnRadioPlayerTimeChanged;
-            _radioPlayer.BufferingChanged += OnRadioPlayerBufferingChanged;
-            _radioPlayer.Play();
+            RadioPlayer ??= new VlcRadioPlayer(url);
+            RadioPlayer.StatusChanged += OnRadioPlayerStatusChanged;
+            RadioPlayer.TimeChanged += OnRadioPlayerTimeChanged;
+            RadioPlayer.BufferingChanged += OnRadioPlayerBufferingChanged;
+            RadioPlayer.Play();
         }
 
         private static void OnRadioPlayMessageReceived(PlayCardViewModel vm, Messages.RadioPlayMessage message)
@@ -58,11 +64,12 @@ namespace LiveTune.ViewModels
 
         private void OnRadioPlayerBufferingChanged(float cache)
         {
-            
+            Debug.WriteLine("OnRadioPlayerBufferingChanged:{0}", cache);
+            Dispatcher.UIThread.Post(() => Buffering = cache < 100, DispatcherPriority.Render);
         }
 
         private void OnRadioPlayerTimeChanged(long time)
-        {
+        {           
             Dispatcher.UIThread.Post(() => PlayTime = time, DispatcherPriority.Render);
         }
 
@@ -84,14 +91,14 @@ namespace LiveTune.ViewModels
 
         private void ReleasePlayer()
         {
-            if (_radioPlayer != null)
+            if (RadioPlayer != null)
             {
-                _radioPlayer.Stop();
-                _radioPlayer.Dispose();
-                _radioPlayer.StatusChanged -= OnRadioPlayerStatusChanged;
-                _radioPlayer.TimeChanged -= OnRadioPlayerTimeChanged;
-                _radioPlayer.BufferingChanged -= OnRadioPlayerBufferingChanged;
-                _radioPlayer = null;
+                RadioPlayer.Stop();
+                RadioPlayer.Dispose();
+                RadioPlayer.StatusChanged -= OnRadioPlayerStatusChanged;
+                RadioPlayer.TimeChanged -= OnRadioPlayerTimeChanged;
+                RadioPlayer.BufferingChanged -= OnRadioPlayerBufferingChanged;
+                RadioPlayer = null;
             }
         }
 

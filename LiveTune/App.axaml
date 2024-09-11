@@ -2,12 +2,12 @@
     x:Class="LiveTune.App"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:assets="clr-namespace:LiveTune.Assets"
     xmlns:views="using:LiveTune.Views"
+    xmlns:vm="using:LiveTune.ViewModels"
+    x:DataType="vm:ApplicationViewModel"
     RequestedThemeVariant="Default">
-    <!--  "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options.  -->
-    <!--<Application.DataTemplates>
-        <views:ViewLocator />
-    </Application.DataTemplates>-->
+
     <Application.Styles>
         <FluentTheme />
         <Style>
@@ -22,4 +22,18 @@
             </Style.Resources>
         </Style>
     </Application.Styles>
+
+    <TrayIcon.Icons>
+        <TrayIcons>
+            <TrayIcon Icon="/Assets/favicon.ico" ToolTipText="LiveTune">
+                <TrayIcon.Menu>
+                    <NativeMenu>
+                        <NativeMenuItem Command="{Binding ShowMainWindowCommand}" Header="{x:Static assets:Resources.OpenMainWindow}" />
+                        <NativeMenuItemSeparator />
+                        <NativeMenuItem Command="{Binding QuitCommand}" Header="{x:Static assets:Resources.Quit}" />
+                    </NativeMenu>
+                </TrayIcon.Menu>
+            </TrayIcon>
+        </TrayIcons>
+    </TrayIcon.Icons>
 </Application>
