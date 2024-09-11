@@ -17,9 +17,10 @@
         ScrollViewer.VerticalScrollBarVisibility="Visible">
         <ListBox.DataTemplates>
             <DataTemplate DataType="{x:Type models:StationListItem}">
-                <Grid ShowGridLines="True">
+                <Grid ShowGridLines="False">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="4*" />
+                        <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -58,7 +59,7 @@
                                 </Button.Content>
                             </Button>
                             <Button
-                                Margin="0,0,20,0"
+                                Margin="0,0,8,0"
                                 Background="Transparent"
                                 Click="OnPlayButtonClick"
                                 Theme="{StaticResource IconButton}">
@@ -94,25 +95,31 @@
                         <TextBlock
                             Margin="8,0,0,0"
                             VerticalAlignment="Center"
-                            Text="{Binding StationName}" />
+                            Text="{Binding StationName}"
+                            ToolTip.Tip="{Binding StationName}" />
 
                     </DockPanel>
-
                     <TextBlock
                         Grid.Column="1"
+                        Margin="8,0,0,0"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Text="{Binding Country}" />
+                    <TextBlock
+                        Grid.Column="2"
                         Margin="8,0,0,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Text="{Binding Language}" />
 
                     <TextBlock
-                        Grid.Column="2"
+                        Grid.Column="3"
                         Margin="8,0,0,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Text="{Binding ClickCount}" />
                     <TextBlock
-                        Grid.Column="3"
+                        Grid.Column="4"
                         Margin="8,0,0,0"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
@@ -125,7 +132,8 @@
                 <DockPanel LastChildFill="True">
                     <Grid Height="32" DockPanel.Dock="Top">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="4*" />
+                            <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
@@ -142,15 +150,21 @@
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Foreground="#7b7b7b"
-                            Text="语言" />
+                            Text="国家" />
                         <TextBlock
                             Grid.Column="2"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Foreground="#7b7b7b"
-                            Text="点击数" />
+                            Text="语言" />
                         <TextBlock
                             Grid.Column="3"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="#7b7b7b"
+                            Text="点击数" />
+                        <TextBlock
+                            Grid.Column="4"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
                             Foreground="#7b7b7b"

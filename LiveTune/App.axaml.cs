@@ -5,7 +5,6 @@ using Avalonia.Markup.Xaml;
 using LiveTune.ViewModels;
 using LiveTune.Views;
 using LiveTune.Views.Windows;
-using System.Globalization;
 using System.Runtime.InteropServices;
 
 namespace LiveTune;
@@ -18,9 +17,8 @@ public partial class App : Application
     }
 
     public override void OnFrameworkInitializationCompleted()
-    {
-        AllocConsole();
-        Assets.Resources.Culture = new CultureInfo("zh");       
+    {       
+        AllocConsole(); 
         BindingPlugins.DataValidators.RemoveAt(0);       
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {

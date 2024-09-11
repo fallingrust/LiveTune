@@ -3,6 +3,7 @@ using RadioBrowserSharp.Models;
 using RadioBrowserSharp;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using LiveTune.Utils;
 
 namespace LiveTune.ViewModels
 {
@@ -90,11 +91,12 @@ namespace LiveTune.ViewModels
                     {
                         ClickCount = station.ClickCount,
                         FaviconUrl = string.IsNullOrWhiteSpace(station.Favicon) || !station.Favicon.StartsWith("http") ? "avares://LiveTune/Assets/favicon.png" : station.Favicon,
-                        Language = string.IsNullOrWhiteSpace(station.Language)? "-": station.Language,
+                        Language = string.IsNullOrWhiteSpace(station.Language)? "-": LocalUtil.GetLanguageisplayName(station.Language, station.Language),
+                        Country = string.IsNullOrWhiteSpace(station.CountryCode) ? "-" : LocalUtil.GetCountyDisplayName(station.CountryCode, station.CountryCode),
                         StationName = station.Name.Trim(),
                         VoteCount = station.Votes,
                         Url = station.Url,
-                    }; ;                   
+                    };                  
                    StationItemSource.Add(item);
                 }
             }
