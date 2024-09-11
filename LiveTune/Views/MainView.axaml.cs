@@ -1,6 +1,7 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
 using System;
+using System.Linq;
 
 namespace LiveTune.Views;
 
@@ -9,8 +10,9 @@ public partial class MainView : UserControl
     public MainView()
     {
         InitializeComponent();
-        this.TryFindResource("Greeting", out var res);
     }
+
+    
 
     private void OnTitleBarPointerPressed(object? sender, Avalonia.Input.PointerPressedEventArgs e)
     {

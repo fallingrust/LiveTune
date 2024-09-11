@@ -2,10 +2,17 @@
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
+using LiveTune.DataBase;
 using LiveTune.ViewModels;
 using LiveTune.Views;
 using LiveTune.Views.Windows;
+using System;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using Tenray.ZoneTree;
+using Tenray.ZoneTree.Comparers;
+using Tenray.ZoneTree.Serializers;
+
 
 namespace LiveTune;
 
@@ -17,8 +24,24 @@ public partial class App : Application
     }
 
     public override void OnFrameworkInitializationCompleted()
-    {       
-        AllocConsole(); 
+    {
+        
+        AllocConsole();
+
+
+        Task.Run(async () =>
+        {
+            using var zoneTree = new ZoneTreeFactory<int,RencentStationEntity>()
+            .SetValueSerializer(new RencentStationEntitySerializer())
+            .SetComparer(new Int32ComparerAscending())
+            .SetKeySerializer(new Int32Serializer()).OpenOrCreate();
+            zoneTree.Upsert(1, new RencentStationEntity() { Id = 1, StationName = "123" });
+            var iter = zoneTree.CreateIterator();
+            while (iter.Next())
+            {
+                Console.WriteLine(iter.CurrentKey);
+            }
+        });
         BindingPlugins.DataValidators.RemoveAt(0);       
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
