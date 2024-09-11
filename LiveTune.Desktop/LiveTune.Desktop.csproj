@@ -9,7 +9,7 @@
 		<ApplicationManifest>app.manifest</ApplicationManifest>
 		<ApplicationIcon>favicon.ico</ApplicationIcon>
 		<PackageIcon>favicon.png</PackageIcon>
-		<PublishAot>true</PublishAot>
+		<!--<PublishAot>true</PublishAot>-->
 	</PropertyGroup>
 	<ItemGroup>
 		<None Remove="favicon.ico" />

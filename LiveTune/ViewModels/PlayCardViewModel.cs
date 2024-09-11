@@ -1,5 +1,6 @@
 ﻿using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Messaging;
+using LiveTune.DataBase;
 using LiveTune.Player;
 using System.Diagnostics;
 
@@ -60,6 +61,7 @@ namespace LiveTune.ViewModels
                 vm.FaviconUrl = message.Value.FaviconUrl;
                 vm.Title = message.Value.StationName;
             });
+            DbCtx.AddOrUpdateRencentStation(RencentStationEntity.Parse(message.Value));
         }
 
         private void OnRadioPlayerBufferingChanged(float cache)

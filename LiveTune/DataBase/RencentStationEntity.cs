@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LiveTune.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Text.Json;
@@ -7,11 +8,37 @@ using Tenray.ZoneTree.Serializers;
 
 namespace LiveTune.DataBase
 {
-
     public class RencentStationEntity
-    {       
-        public int Id { get; set; }
+    {
+        public RencentStationEntity()
+        {
+            
+        }
         public string StationName { get; set; } = string.Empty;
+        public string Language { get; set; } = string.Empty;
+
+        public int ClickCount { get; set; }
+        public int VoteCount { get; set; }
+
+        public string FaviconUrl { get; set; } = string.Empty;
+        public string Country { get; set; } = string.Empty;
+        public string Url { get; set; } = string.Empty;
+        public string StationId { get; set; } = string.Empty;
+        public string PlayTime { get; set; } = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        public static RencentStationEntity Parse(StationListItem item)
+        {
+            return new RencentStationEntity()
+            {
+                 ClickCount = item.ClickCount,
+                 VoteCount = item.VoteCount,
+                 StationId = item.StationId,
+                 StationName = item.StationName,
+                 Language = item.Language,
+                 Url = item.Url,
+                 Country = item.Country,
+                 FaviconUrl = item.FaviconUrl,
+            };
+        }
     }
 
 

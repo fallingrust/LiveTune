@@ -33,9 +33,9 @@ public partial class App : Application
         {
             using var zoneTree = new ZoneTreeFactory<int,RencentStationEntity>()
             .SetValueSerializer(new RencentStationEntitySerializer())
-            .SetComparer(new Int32ComparerAscending())
+            
             .SetKeySerializer(new Int32Serializer()).OpenOrCreate();
-            zoneTree.Upsert(1, new RencentStationEntity() { Id = 1, StationName = "123" });
+            
             var iter = zoneTree.CreateIterator();
             while (iter.Next())
             {

@@ -1,4 +1,5 @@
-﻿using LiveTune.ViewModels;
+﻿using LiveTune.DataBase;
+using LiveTune.ViewModels;
 
 namespace LiveTune.Models
 {
@@ -20,5 +21,21 @@ namespace LiveTune.Models
 
         public string Country { get => _country; set => SetProperty(ref _country, value); }
         public string Url { get; set; } = string.Empty;
+        public string StationId { get; set; } = string.Empty;
+
+        public static StationListItem Parse(RencentStationEntity entity)
+        {
+            return new StationListItem()
+            {
+                ClickCount = entity.ClickCount,
+                VoteCount = entity.VoteCount,
+                StationId = entity.StationId,
+                StationName = entity.StationName,
+                Language = entity.Language,
+                Url = entity.Url,
+                Country = entity.Country,
+                FaviconUrl = entity.FaviconUrl,
+            };
+        }
     }
 }

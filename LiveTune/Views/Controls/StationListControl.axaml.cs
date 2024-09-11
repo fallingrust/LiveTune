@@ -34,7 +34,7 @@ public partial class StationListControl : UserControl
 
     private void OnPlayButtonClick(object? sender, RoutedEventArgs e)
     {
-        if(sender is Button btn && btn.DataContext is StationListItem item)
+        if (sender is Button btn && btn.DataContext is StationListItem item)
         {
             WeakReferenceMessenger.Default.Send(new Messages.RadioPlayMessage(item));
         }
