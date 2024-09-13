@@ -27,6 +27,23 @@ namespace LiveTune.Models
         public string Url { get; set; } = string.Empty;
         public string StationId { get; set; } = string.Empty;
 
+
+
+        public StationListItem Clone()
+        {
+            return new StationListItem()
+            {
+                StationName = StationName,
+                Language = Language,
+                ClickCount = ClickCount,
+                VoteCount = VoteCount,
+                FaviconUrl = FaviconUrl,
+                Country = Country,
+                IsLike = IsLike,
+                Url = Url,
+                StationId = StationId
+            };
+        }
         public static StationListItem Parse(RencentStationEntity entity)
         {
             return new StationListItem()

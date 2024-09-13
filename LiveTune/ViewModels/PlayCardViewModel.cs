@@ -1,6 +1,7 @@
 ﻿using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Messaging;
 using LiveTune.DataBase;
+using LiveTune.Models;
 using LiveTune.Player;
 using System.Diagnostics;
 
@@ -14,7 +15,7 @@ namespace LiveTune.ViewModels
         private string _faviconUrl = string.Empty;
         private string _url = string.Empty;
         private bool _buffering = false;
-        
+        private bool _isLikeStation = false;
         public string FaviconUrl { get => _faviconUrl; set => SetProperty(ref _faviconUrl, value); }
         public string Title { get => _title; set => SetProperty(ref _title, value); }
         public bool IsPlaying { get => _isPlaying; set => SetProperty(ref _isPlaying, value); }
@@ -22,7 +23,9 @@ namespace LiveTune.ViewModels
 
         public bool Buffering { get => _buffering; set => SetProperty(ref _buffering, value); }
         
+        public bool IsLikeStation { get => _isLikeStation; set => SetProperty(ref _isLikeStation, value); }
 
+        public StationListItem? PlayStation { get; private set; }
         public string Url
         {
             get => _url;
@@ -55,11 +58,13 @@ namespace LiveTune.ViewModels
 
         private static void OnRadioPlayMessageReceived(PlayCardViewModel vm, Messages.RadioPlayMessage message)
         {
+            vm.PlayStation = message.Value;
             Dispatcher.UIThread.Post(() =>
             {
                 vm.Url = message.Value.Url;
                 vm.FaviconUrl = message.Value.FaviconUrl;
                 vm.Title = message.Value.StationName;
+                vm.IsLikeStation = message.Value.IsLike;
             });
             DbCtx.AddOrUpdateRencentStation(RencentStationEntity.Parse(message.Value));
         }

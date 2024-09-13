@@ -1,5 +1,6 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using CommunityToolkit.Mvvm.Messaging;
 using LiveTune.ViewModels;
 
 namespace LiveTune;
@@ -23,6 +24,16 @@ public partial class PlayCardControl : UserControl
             {
                 vm?.RadioPlayer?.Play();
             }
+        }
+    }
+
+    private void OnLikeToggleButtonClick(object? sender, RoutedEventArgs e)
+    {
+        if (DataContext is PlayCardViewModel vm && vm.PlayStation != null)
+        {
+            vm.IsLikeStation = !vm.IsLikeStation;
+            vm.PlayStation.IsLike = vm.IsLikeStation;
+            WeakReferenceMessenger.Default.Send(new Messages.RadioLikeMessage(vm.PlayStation));
         }
     }
 }

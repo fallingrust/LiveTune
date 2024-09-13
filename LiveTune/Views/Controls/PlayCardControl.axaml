@@ -90,7 +90,9 @@
                 Grid.Column="1"
                 HorizontalAlignment="Center"
                 Background="Transparent"
-                Cursor="Hand">
+                Click="OnLikeToggleButtonClick"
+                Cursor="Hand"
+                IsChecked="{Binding IsLikeStation, Mode=OneWay}">
                 <PathIcon
                     Width="16"
                     Height="16"
