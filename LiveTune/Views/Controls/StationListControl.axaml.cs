@@ -1,10 +1,13 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
+using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Messaging;
 using LiveTune.Models;
+using LiveTune.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace LiveTune.Views.Controls;
 
@@ -21,8 +24,24 @@ public partial class StationListControl : UserControl
     {
         InitializeComponent();       
         PART_ListBox_StationList.PointerWheelChanged += OnStationListPointerWheelChanged;
+        WeakReferenceMessenger.Default.Register<StationListControl, Messages.RadioLikeMessage>(this, OnRadioLikeMessageReceived);
     }
-
+    ~StationListControl()
+    {
+        WeakReferenceMessenger.Default.Unregister<StationListControl>(this);
+    }
+    private static void OnRadioLikeMessageReceived(StationListControl view, Messages.RadioLikeMessage message)
+    {
+        if (view.ItemSource == null || !view.ItemSource.Any()) return;
+        Dispatcher.UIThread.Post(() =>
+        {
+            var item = view.ItemSource.FirstOrDefault(p => p.StationId == message.Value.StationId);
+            if (item != null)
+            {
+                item.IsLike = message.Value.IsLike;
+            }
+        });
+    }
     private void OnStationListPointerWheelChanged(object? sender, Avalonia.Input.PointerWheelEventArgs e)
     {      
         if (e.Delta.Y < 0)

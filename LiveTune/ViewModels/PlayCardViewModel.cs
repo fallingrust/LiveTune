@@ -44,8 +44,18 @@ namespace LiveTune.ViewModels
         public PlayCardViewModel()
         {
             WeakReferenceMessenger.Default.Register<PlayCardViewModel, Messages.RadioPlayMessage>(this, OnRadioPlayMessageReceived);
+            WeakReferenceMessenger.Default.Register<PlayCardViewModel, Messages.RadioLikeMessage>(this, OnRadioLikeMessageReceived);       
         }
 
+        private static void OnRadioLikeMessageReceived(PlayCardViewModel vm, Messages.RadioLikeMessage message)
+        {
+            if (vm.PlayStation == null || vm.PlayStation.StationId != message.Value.StationId) return;
+            Dispatcher.UIThread.Post(() =>
+            {
+                vm.IsLikeStation = message.Value.IsLike;
+                vm.PlayStation.IsLike = message.Value.IsLike;
+            });
+        }
         private void CreatePlayer(string url)
         {
             ReleasePlayer();
@@ -58,7 +68,7 @@ namespace LiveTune.ViewModels
 
         private static void OnRadioPlayMessageReceived(PlayCardViewModel vm, Messages.RadioPlayMessage message)
         {
-            vm.PlayStation = message.Value;
+            vm.PlayStation = message.Value.Clone();
             Dispatcher.UIThread.Post(() =>
             {
                 vm.Url = message.Value.Url;

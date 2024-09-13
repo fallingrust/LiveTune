@@ -52,11 +52,7 @@ public partial class MainViewModel : ViewModelBase
 
     public MainViewModel()
     {
-        WeakReferenceMessenger.Default.Register<MainViewModel, Messages.RadioLikeMessage>(this, OnRadioLikeMessageReceived);
     }
 
-    private static void OnRadioLikeMessageReceived(MainViewModel vm, Messages.RadioLikeMessage message)
-    {       
-        DbCtx.AddOrRemoveLikeStation(LikeStationEntity.Parse(message.Value));
-    }
+   
 }
