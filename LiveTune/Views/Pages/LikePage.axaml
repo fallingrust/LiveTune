@@ -5,8 +5,13 @@
     xmlns:controls="using:LiveTune.Views.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:LiveTune.ViewModels"
     d:DesignHeight="450"
     d:DesignWidth="800"
+    x:DataType="viewmodels:LikePageViewModel"
     mc:Ignorable="d">
-    <controls:StationListControl />
+    <UserControl.DataContext>
+        <viewmodels:LikePageViewModel />
+    </UserControl.DataContext>
+    <controls:StationListControl ItemSource="{Binding StationItemSource}" />
 </UserControl>

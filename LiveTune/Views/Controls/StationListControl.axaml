@@ -41,19 +41,26 @@
                             <Button
                                 Margin="0,0,20,0"
                                 Background="Transparent"
+                                Click="OnLikeButtonClick"
                                 Theme="{StaticResource IconButton}">
                                 <Button.Content>
                                     <PathIcon
                                         Width="16"
                                         Height="16"
+                                        Classes.Like="{Binding IsLike}"
                                         Data="{StaticResource icon_like}">
                                         <PathIcon.Styles>
+
+                                            <Style Selector="PathIcon.Like">
+                                                <Setter Property="PathIcon.Foreground" Value="red" />
+                                            </Style>
                                             <Style Selector="Button > PathIcon">
                                                 <Setter Property="PathIcon.Foreground" Value="#7b7b7b" />
                                             </Style>
                                             <Style Selector="Button:pointerover > PathIcon">
                                                 <Setter Property="PathIcon.Foreground" Value="red" />
                                             </Style>
+
                                         </PathIcon.Styles>
                                     </PathIcon>
                                 </Button.Content>

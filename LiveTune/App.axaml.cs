@@ -26,22 +26,7 @@ public partial class App : Application
     public override void OnFrameworkInitializationCompleted()
     {
         
-        AllocConsole();
-
-
-        Task.Run(async () =>
-        {
-            using var zoneTree = new ZoneTreeFactory<int,RencentStationEntity>()
-            .SetValueSerializer(new RencentStationEntitySerializer())
-            
-            .SetKeySerializer(new Int32Serializer()).OpenOrCreate();
-            
-            var iter = zoneTree.CreateIterator();
-            while (iter.Next())
-            {
-                Console.WriteLine(iter.CurrentKey);
-            }
-        });
+        AllocConsole();      
         BindingPlugins.DataValidators.RemoveAt(0);       
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {

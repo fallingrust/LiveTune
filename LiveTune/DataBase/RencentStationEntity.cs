@@ -25,6 +25,7 @@ namespace LiveTune.DataBase
         public string Url { get; set; } = string.Empty;
         public string StationId { get; set; } = string.Empty;
         public string PlayTime { get; set; } = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+        public bool IsLikeStation { get; set; }
         public static RencentStationEntity Parse(StationListItem item)
         {
             return new RencentStationEntity()
@@ -37,6 +38,7 @@ namespace LiveTune.DataBase
                  Url = item.Url,
                  Country = item.Country,
                  FaviconUrl = item.FaviconUrl,
+                 IsLikeStation = item.IsLike
             };
         }
     }

@@ -38,7 +38,15 @@ public partial class StationListControl : UserControl
         {
             WeakReferenceMessenger.Default.Send(new Messages.RadioPlayMessage(item));
         }
-        //
+    }
+
+    private void OnLikeButtonClick(object? sender, RoutedEventArgs e)
+    {
+        if (sender is Button btn && btn.DataContext is StationListItem item)
+        {
+            item.IsLike = !item.IsLike;
+            WeakReferenceMessenger.Default.Send(new Messages.RadioLikeMessage(item));
+        }
     }
 
     //private void OnStationListLoaded(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
