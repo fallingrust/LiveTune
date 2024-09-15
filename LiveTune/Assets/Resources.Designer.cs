@@ -61,11 +61,443 @@ namespace LiveTune.Assets {
         }
         
         /// <summary>
+        ///   查找类似 阿联酋 的本地化字符串。
+        /// </summary>
+        public static string AE {
+            get {
+                return ResourceManager.GetString("AE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 阿富汗 的本地化字符串。
+        /// </summary>
+        public static string AF {
+            get {
+                return ResourceManager.GetString("AF", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 全部 的本地化字符串。
+        /// </summary>
+        public static string All {
+            get {
+                return ResourceManager.GetString("All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 美式英语 的本地化字符串。
+        /// </summary>
+        public static string american_english {
+            get {
+                return ResourceManager.GetString("american english", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 阿根廷 的本地化字符串。
+        /// </summary>
+        public static string AR {
+            get {
+                return ResourceManager.GetString("AR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 阿拉伯语 的本地化字符串。
+        /// </summary>
+        public static string arabic {
+            get {
+                return ResourceManager.GetString("arabic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 奥地利 的本地化字符串。
+        /// </summary>
+        public static string AT {
+            get {
+                return ResourceManager.GetString("AT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 澳大利亚 的本地化字符串。
+        /// </summary>
+        public static string AU {
+            get {
+                return ResourceManager.GetString("AU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 波黑 的本地化字符串。
+        /// </summary>
+        public static string BA {
+            get {
+                return ResourceManager.GetString("BA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 比利时 的本地化字符串。
+        /// </summary>
+        public static string BE {
+            get {
+                return ResourceManager.GetString("BE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 波斯尼亚语 的本地化字符串。
+        /// </summary>
+        public static string bosnian {
+            get {
+                return ResourceManager.GetString("bosnian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 巴西 的本地化字符串。
+        /// </summary>
+        public static string BR {
+            get {
+                return ResourceManager.GetString("BR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 巴西葡萄牙语 的本地化字符串。
+        /// </summary>
+        public static string brazilian_portuguese {
+            get {
+                return ResourceManager.GetString("brazilian portuguese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 加拿大 的本地化字符串。
+        /// </summary>
+        public static string CA {
+            get {
+                return ResourceManager.GetString("CA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 瑞士 的本地化字符串。
+        /// </summary>
+        public static string CH {
+            get {
+                return ResourceManager.GetString("CH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 中文 的本地化字符串。
+        /// </summary>
+        public static string chinese {
+            get {
+                return ResourceManager.GetString("chinese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 智利 的本地化字符串。
+        /// </summary>
+        public static string CL {
+            get {
+                return ResourceManager.GetString("CL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 中国 的本地化字符串。
+        /// </summary>
+        public static string CN {
+            get {
+                return ResourceManager.GetString("CN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 哥伦比亚 的本地化字符串。
+        /// </summary>
+        public static string CO {
+            get {
+                return ResourceManager.GetString("CO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 收藏 的本地化字符串。
+        /// </summary>
+        public static string Collections {
+            get {
+                return ResourceManager.GetString("Collections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 正在连接到广播站点... 的本地化字符串。
         /// </summary>
         public static string ConnectingToRadioStation {
             get {
                 return ResourceManager.GetString("ConnectingToRadioStation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 克罗地亚语 的本地化字符串。
+        /// </summary>
+        public static string croatian {
+            get {
+                return ResourceManager.GetString("croatian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 捷克语 的本地化字符串。
+        /// </summary>
+        public static string czech {
+            get {
+                return ResourceManager.GetString("czech", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 德国 的本地化字符串。
+        /// </summary>
+        public static string DE {
+            get {
+                return ResourceManager.GetString("DE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 荷兰语 的本地化字符串。
+        /// </summary>
+        public static string dutch {
+            get {
+                return ResourceManager.GetString("dutch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 厄瓜多尔 的本地化字符串。
+        /// </summary>
+        public static string EC {
+            get {
+                return ResourceManager.GetString("EC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 英语 的本地化字符串。
+        /// </summary>
+        public static string english {
+            get {
+                return ResourceManager.GetString("english", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 西班牙 的本地化字符串。
+        /// </summary>
+        public static string ES {
+            get {
+                return ResourceManager.GetString("ES", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 芬兰 的本地化字符串。
+        /// </summary>
+        public static string FI {
+            get {
+                return ResourceManager.GetString("FI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 芬兰语 的本地化字符串。
+        /// </summary>
+        public static string finnish {
+            get {
+                return ResourceManager.GetString("finnish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 法国 的本地化字符串。
+        /// </summary>
+        public static string FR {
+            get {
+                return ResourceManager.GetString("FR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 法语 的本地化字符串。
+        /// </summary>
+        public static string french {
+            get {
+                return ResourceManager.GetString("french", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 英国 的本地化字符串。
+        /// </summary>
+        public static string GB {
+            get {
+                return ResourceManager.GetString("GB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 德语 的本地化字符串。
+        /// </summary>
+        public static string german {
+            get {
+                return ResourceManager.GetString("german", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 希腊 的本地化字符串。
+        /// </summary>
+        public static string GR {
+            get {
+                return ResourceManager.GetString("GR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 希腊语 的本地化字符串。
+        /// </summary>
+        public static string greek {
+            get {
+                return ResourceManager.GetString("greek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 印地语 的本地化字符串。
+        /// </summary>
+        public static string hindi {
+            get {
+                return ResourceManager.GetString("hindi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 匈牙利 的本地化字符串。
+        /// </summary>
+        public static string HU {
+            get {
+                return ResourceManager.GetString("HU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 匈牙利语 的本地化字符串。
+        /// </summary>
+        public static string hungarian {
+            get {
+                return ResourceManager.GetString("hungarian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 印度尼西亚 的本地化字符串。
+        /// </summary>
+        public static string ID {
+            get {
+                return ResourceManager.GetString("ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 印度 的本地化字符串。
+        /// </summary>
+        public static string IN {
+            get {
+                return ResourceManager.GetString("IN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 意大利 的本地化字符串。
+        /// </summary>
+        public static string IT {
+            get {
+                return ResourceManager.GetString("IT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 意大利语 的本地化字符串。
+        /// </summary>
+        public static string italian {
+            get {
+                return ResourceManager.GetString("italian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 日语 的本地化字符串。
+        /// </summary>
+        public static string japanese {
+            get {
+                return ResourceManager.GetString("japanese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 日本 的本地化字符串。
+        /// </summary>
+        public static string JP {
+            get {
+                return ResourceManager.GetString("JP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 墨西哥 的本地化字符串。
+        /// </summary>
+        public static string MX {
+            get {
+                return ResourceManager.GetString("MX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 荷兰 的本地化字符串。
+        /// </summary>
+        public static string NL {
+            get {
+                return ResourceManager.GetString("NL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 新西兰 的本地化字符串。
+        /// </summary>
+        public static string NZ {
+            get {
+                return ResourceManager.GetString("NZ", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 在线站点 的本地化字符串。
+        /// </summary>
+        public static string OnlineStations {
+            get {
+                return ResourceManager.GetString("OnlineStations", resourceCulture);
             }
         }
         
@@ -79,11 +511,218 @@ namespace LiveTune.Assets {
         }
         
         /// <summary>
+        ///   查找类似 秘鲁 的本地化字符串。
+        /// </summary>
+        public static string PE {
+            get {
+                return ResourceManager.GetString("PE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 菲律宾 的本地化字符串。
+        /// </summary>
+        public static string PH {
+            get {
+                return ResourceManager.GetString("PH", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 波兰 的本地化字符串。
+        /// </summary>
+        public static string PL {
+            get {
+                return ResourceManager.GetString("PL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 波兰语 的本地化字符串。
+        /// </summary>
+        public static string polish {
+            get {
+                return ResourceManager.GetString("polish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 葡萄牙语 的本地化字符串。
+        /// </summary>
+        public static string portuguese {
+            get {
+                return ResourceManager.GetString("portuguese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 退出 的本地化字符串。
         /// </summary>
         public static string Quit {
             get {
                 return ResourceManager.GetString("Quit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 最近播放 的本地化字符串。
+        /// </summary>
+        public static string RecentStations {
+            get {
+                return ResourceManager.GetString("RecentStations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 推荐 的本地化字符串。
+        /// </summary>
+        public static string Recommend {
+            get {
+                return ResourceManager.GetString("Recommend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 罗马尼亚 的本地化字符串。
+        /// </summary>
+        public static string RO {
+            get {
+                return ResourceManager.GetString("RO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 罗马尼亚语 的本地化字符串。
+        /// </summary>
+        public static string romanian {
+            get {
+                return ResourceManager.GetString("romanian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 塞尔维亚 的本地化字符串。
+        /// </summary>
+        public static string RS {
+            get {
+                return ResourceManager.GetString("RS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 俄罗斯 的本地化字符串。
+        /// </summary>
+        public static string RU {
+            get {
+                return ResourceManager.GetString("RU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 俄语 的本地化字符串。
+        /// </summary>
+        public static string russian {
+            get {
+                return ResourceManager.GetString("russian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 站点搜索 的本地化字符串。
+        /// </summary>
+        public static string SearchStations {
+            get {
+                return ResourceManager.GetString("SearchStations", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 塞尔维亚语 的本地化字符串。
+        /// </summary>
+        public static string serbian {
+            get {
+                return ResourceManager.GetString("serbian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 斯洛伐克 的本地化字符串。
+        /// </summary>
+        public static string SK {
+            get {
+                return ResourceManager.GetString("SK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 西班牙语 的本地化字符串。
+        /// </summary>
+        public static string spanish {
+            get {
+                return ResourceManager.GetString("spanish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 泰米尔语 的本地化字符串。
+        /// </summary>
+        public static string tamil {
+            get {
+                return ResourceManager.GetString("tamil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 土耳其 的本地化字符串。
+        /// </summary>
+        public static string TR {
+            get {
+                return ResourceManager.GetString("TR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 土耳其语 的本地化字符串。
+        /// </summary>
+        public static string turkish {
+            get {
+                return ResourceManager.GetString("turkish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 乌克兰 的本地化字符串。
+        /// </summary>
+        public static string UA {
+            get {
+                return ResourceManager.GetString("UA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 乌干达 的本地化字符串。
+        /// </summary>
+        public static string UG {
+            get {
+                return ResourceManager.GetString("UG", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 乌克兰语 的本地化字符串。
+        /// </summary>
+        public static string ukrainian {
+            get {
+                return ResourceManager.GetString("ukrainian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 美国 的本地化字符串。
+        /// </summary>
+        public static string US {
+            get {
+                return ResourceManager.GetString("US", resourceCulture);
             }
         }
     }

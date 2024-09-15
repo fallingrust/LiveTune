@@ -126,4 +126,217 @@
   <data name="Quit" xml:space="preserve">
     <value>退出</value>
   </data>
+  <data name="english" xml:space="preserve">
+    <value>英语</value>
+  </data>
+  <data name="japanese" xml:space="preserve">
+    <value>日语</value>
+  </data>
+  <data name="spanish" xml:space="preserve">
+    <value>西班牙语</value>
+  </data>
+  <data name="german" xml:space="preserve">
+    <value>德语</value>
+  </data>
+  <data name="french" xml:space="preserve">
+    <value>法语</value>
+  </data>
+  <data name="chinese" xml:space="preserve">
+    <value>中文</value>
+  </data>
+  <data name="italian" xml:space="preserve">
+    <value>意大利语</value>
+  </data>
+  <data name="russian" xml:space="preserve">
+    <value>俄语</value>
+  </data>
+  <data name="greek" xml:space="preserve">
+    <value>希腊语</value>
+  </data>
+  <data name="polish" xml:space="preserve">
+    <value>波兰语</value>
+  </data>
+  <data name="portuguese" xml:space="preserve">
+    <value>葡萄牙语</value>
+  </data>
+  <data name="dutch" xml:space="preserve">
+    <value>荷兰语</value>
+  </data>
+  <data name="hindi" xml:space="preserve">
+    <value>印地语</value>
+  </data>
+  <data name="tamil" xml:space="preserve">
+    <value>泰米尔语</value>
+  </data>
+  <data name="brazilian portuguese" xml:space="preserve">
+    <value>巴西葡萄牙语</value>
+  </data>
+  <data name="romanian" xml:space="preserve">
+    <value>罗马尼亚语</value>
+  </data>
+  <data name="american english" xml:space="preserve">
+    <value>美式英语</value>
+  </data>
+  <data name="arabic" xml:space="preserve">
+    <value>阿拉伯语</value>
+  </data>
+  <data name="serbian" xml:space="preserve">
+    <value>塞尔维亚语</value>
+  </data>
+  <data name="hungarian" xml:space="preserve">
+    <value>匈牙利语</value>
+  </data>
+  <data name="ukrainian" xml:space="preserve">
+    <value>乌克兰语</value>
+  </data>
+  <data name="czech" xml:space="preserve">
+    <value>捷克语</value>
+  </data>
+  <data name="croatian" xml:space="preserve">
+    <value>克罗地亚语</value>
+  </data>
+  <data name="turkish" xml:space="preserve">
+    <value>土耳其语</value>
+  </data>
+  <data name="US" xml:space="preserve">
+    <value>美国</value>
+  </data>
+  <data name="DE" xml:space="preserve">
+    <value>德国</value>
+  </data>
+  <data name="RU" xml:space="preserve">
+    <value>俄罗斯</value>
+  </data>
+  <data name="FR" xml:space="preserve">
+    <value>法国</value>
+  </data>
+  <data name="GR" xml:space="preserve">
+    <value>希腊</value>
+  </data>
+  <data name="CN" xml:space="preserve">
+    <value>中国</value>
+  </data>
+  <data name="GB" xml:space="preserve">
+    <value>英国</value>
+  </data>
+  <data name="AU" xml:space="preserve">
+    <value>澳大利亚</value>
+  </data>
+  <data name="MX" xml:space="preserve">
+    <value>墨西哥</value>
+  </data>
+  <data name="IT" xml:space="preserve">
+    <value>意大利</value>
+  </data>
+  <data name="CA" xml:space="preserve">
+    <value>加拿大</value>
+  </data>
+  <data name="IN" xml:space="preserve">
+    <value>印度</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>全部</value>
+  </data>
+  <data name="BR" xml:space="preserve">
+    <value>巴西</value>
+  </data>
+  <data name="ES" xml:space="preserve">
+    <value>西班牙</value>
+  </data>
+  <data name="PL" xml:space="preserve">
+    <value>波兰</value>
+  </data>
+  <data name="PH" xml:space="preserve">
+    <value>菲律宾</value>
+  </data>
+  <data name="AR" xml:space="preserve">
+    <value>阿根廷</value>
+  </data>
+  <data name="NL" xml:space="preserve">
+    <value>荷兰</value>
+  </data>
+  <data name="AE" xml:space="preserve">
+    <value>阿联酋</value>
+  </data>
+  <data name="UG" xml:space="preserve">
+    <value>乌干达</value>
+  </data>
+  <data name="CH" xml:space="preserve">
+    <value>瑞士</value>
+  </data>
+  <data name="RO" xml:space="preserve">
+    <value>罗马尼亚</value>
+  </data>
+  <data name="CO" xml:space="preserve">
+    <value>哥伦比亚</value>
+  </data>
+  <data name="TR" xml:space="preserve">
+    <value>土耳其</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>印度尼西亚</value>
+  </data>
+  <data name="BE" xml:space="preserve">
+    <value>比利时</value>
+  </data>
+  <data name="CL" xml:space="preserve">
+    <value>智利</value>
+  </data>
+  <data name="RS" xml:space="preserve">
+    <value>塞尔维亚</value>
+  </data>
+  <data name="AT" xml:space="preserve">
+    <value>奥地利</value>
+  </data>
+  <data name="HU" xml:space="preserve">
+    <value>匈牙利</value>
+  </data>
+  <data name="PE" xml:space="preserve">
+    <value>秘鲁</value>
+  </data>
+  <data name="UA" xml:space="preserve">
+    <value>乌克兰</value>
+  </data>
+  <data name="JP" xml:space="preserve">
+    <value>日本</value>
+  </data>
+  <data name="SK" xml:space="preserve">
+    <value>斯洛伐克</value>
+  </data>
+  <data name="EC" xml:space="preserve">
+    <value>厄瓜多尔</value>
+  </data>
+  <data name="NZ" xml:space="preserve">
+    <value>新西兰</value>
+  </data>
+  <data name="BA" xml:space="preserve">
+    <value>波黑</value>
+  </data>
+  <data name="FI" xml:space="preserve">
+    <value>芬兰</value>
+  </data>
+  <data name="AF" xml:space="preserve">
+    <value>阿富汗</value>
+  </data>
+  <data name="bosnian" xml:space="preserve">
+    <value>波斯尼亚语</value>
+  </data>
+  <data name="finnish" xml:space="preserve">
+    <value>芬兰语</value>
+  </data>
+  <data name="Recommend" xml:space="preserve">
+    <value>推荐</value>
+  </data>
+  <data name="OnlineStations" xml:space="preserve">
+    <value>在线站点</value>
+  </data>
+  <data name="RecentStations" xml:space="preserve">
+    <value>最近播放</value>
+  </data>
+  <data name="Collections" xml:space="preserve">
+    <value>收藏</value>
+  </data>
+  <data name="SearchStations" xml:space="preserve">
+    <value>站点搜索</value>
+  </data>
 </root>

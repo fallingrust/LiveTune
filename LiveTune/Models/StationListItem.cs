@@ -81,13 +81,16 @@ namespace LiveTune.Models
             if (string.IsNullOrWhiteSpace(station.Name)) return null;
             if (string.IsNullOrWhiteSpace(station.Url)) return null;
             if (string.IsNullOrWhiteSpace(station.StationUUID)) return null;
+
+            var language = LocalizationUtil.GetDisplayName(station.Language);
+            var country = LocalizationUtil.GetDisplayName(station.CountryCode);
             return new StationListItem()
             {
                 StationId = station.StationUUID,
                 ClickCount = station.ClickCount,
                 FaviconUrl = string.IsNullOrWhiteSpace(station.Favicon) || !station.Favicon.StartsWith("http") ? "avares://LiveTune/Assets/favicon.png" : station.Favicon,
-                Language = string.IsNullOrWhiteSpace(station.Language) ? "-" : LocalUtil.GetLanguageisplayName(station.Language, station.Language),
-                Country = string.IsNullOrWhiteSpace(station.CountryCode) ? "-" : LocalUtil.GetCountyDisplayName(station.CountryCode, station.CountryCode),
+                Language = string.IsNullOrWhiteSpace(language) ? "-" : language,
+                Country = string.IsNullOrWhiteSpace(country) ? "-" : country,
                 StationName = station.Name.Trim(),
                 VoteCount = station.Votes,
                 IsLike = DbCtx.IsLikeStation(station.StationUUID),

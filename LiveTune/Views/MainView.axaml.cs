@@ -1,7 +1,9 @@
 ﻿using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
+using LiveTune.ViewModels;
+using LiveTune.Views.Pages;
 using System;
-using System.Linq;
 
 namespace LiveTune.Views;
 
@@ -10,13 +12,30 @@ public partial class MainView : UserControl
     public MainView()
     {
         InitializeComponent();
+        PART_TextBox_Search.KeyDown += OnSearchTextBoxKeyDown;
     }
 
-    
-
-    private void OnTitleBarPointerPressed(object? sender, Avalonia.Input.PointerPressedEventArgs e)
+    private void OnSearchTextBoxKeyDown(object? sender, KeyEventArgs e)
     {
-        (TopLevel.GetTopLevel(this) as Window)?.BeginMoveDrag(e);
+        if (e.Key == Key.Enter && sender is TextBox tb && !string.IsNullOrWhiteSpace(tb.Text) && DataContext is MainViewModel vm)
+        {
+            if (vm.CurrentPage is SearchPage searchPage)
+            {
+                searchPage.UpdateSearchContent(tb.Text);
+            }
+            else
+            {
+                vm.CurrentPage = new SearchPage(tb.Text);
+            }
+        }
+    }
+
+    private void OnTitleBarPointerPressed(object? sender, PointerPressedEventArgs e)
+    {
+        if (e is null)
+        {
+            throw new ArgumentNullException(nameof(e));
+        } (TopLevel.GetTopLevel(this) as Window)?.BeginMoveDrag(e);
     }
 
     private void OnCloseButtonClick(object? sender, RoutedEventArgs e)

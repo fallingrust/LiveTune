@@ -65,7 +65,7 @@
                             <TextBlock
                                 Margin="16,0,0,0"
                                 VerticalAlignment="Center"
-                                Text="推荐" />
+                                Text="{x:Static assets:Resources.Recommend}" />
                         </StackPanel>
                         <ListBoxItem.Styles>
                             <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
@@ -101,7 +101,7 @@
                             <TextBlock
                                 Margin="16,0,0,0"
                                 VerticalAlignment="Center"
-                                Text="在线站点" />
+                                Text="{x:Static assets:Resources.OnlineStations}" />
                         </StackPanel>
                         <ListBoxItem.Styles>
                             <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
@@ -135,7 +135,10 @@
                                     </Style>
                                 </PathIcon.Styles>
                             </PathIcon>
-                            <TextBlock Margin="16,0,0,0" Text="收藏" />
+                            <TextBlock
+                                Margin="16,0,0,0"
+                                VerticalAlignment="Center"
+                                Text="{x:Static assets:Resources.Collections}" />
                         </StackPanel>
                         <ListBoxItem.Styles>
                             <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
@@ -168,7 +171,10 @@
                                     </Style>
                                 </PathIcon.Styles>
                             </PathIcon>
-                            <TextBlock Margin="16,0,0,0" Text="最近播放" />
+                            <TextBlock
+                                Margin="16,0,0,0"
+                                VerticalAlignment="Center"
+                                Text="{x:Static assets:Resources.RecentStations}" />
                         </StackPanel>
                         <ListBoxItem.Styles>
                             <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
@@ -258,6 +264,7 @@
                             </Button.Content>
                         </Button>
                         <TextBox
+                            x:Name="PART_TextBox_Search"
                             Width="188"
                             Height="32"
                             Margin="20,0,0,0"
@@ -266,7 +273,7 @@
                             BorderThickness="0"
                             CornerRadius="12"
                             FontSize="12"
-                            Watermark="搜索电台">
+                            Watermark="{x:Static assets:Resources.SearchStations}">
                             <TextBox.InnerLeftContent>
                                 <PathIcon
                                     Width="12"

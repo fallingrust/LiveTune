@@ -126,4 +126,217 @@
   <data name="Quit" xml:space="preserve">
     <value>Quit</value>
   </data>
+  <data name="english" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="japanese" xml:space="preserve">
+    <value>Japanese</value>
+  </data>
+  <data name="spanish" xml:space="preserve">
+    <value>Spanish</value>
+  </data>
+  <data name="german" xml:space="preserve">
+    <value>German</value>
+  </data>
+  <data name="french" xml:space="preserve">
+    <value>French</value>
+  </data>
+  <data name="chinese" xml:space="preserve">
+    <value>Chinese</value>
+  </data>
+  <data name="italian" xml:space="preserve">
+    <value>Italian</value>
+  </data>
+  <data name="russian" xml:space="preserve">
+    <value>Russian</value>
+  </data>
+  <data name="greek" xml:space="preserve">
+    <value>Greek</value>
+  </data>
+  <data name="polish" xml:space="preserve">
+    <value>Polish</value>
+  </data>
+  <data name="portuguese" xml:space="preserve">
+    <value>Portuguese</value>
+  </data>
+  <data name="dutch" xml:space="preserve">
+    <value>Dutch</value>
+  </data>
+  <data name="hindi" xml:space="preserve">
+    <value>Hndi</value>
+  </data>
+  <data name="tamil" xml:space="preserve">
+    <value>Tamil</value>
+  </data>
+  <data name="brazilian portuguese" xml:space="preserve">
+    <value>BrazilianPortuguese</value>
+  </data>
+  <data name="romanian" xml:space="preserve">
+    <value>Romanian</value>
+  </data>
+  <data name="american english" xml:space="preserve">
+    <value>AmericanEnglish</value>
+  </data>
+  <data name="arabic" xml:space="preserve">
+    <value>Arabic</value>
+  </data>
+  <data name="serbian" xml:space="preserve">
+    <value>Serbian</value>
+  </data>
+  <data name="hungarian" xml:space="preserve">
+    <value>Hungarian</value>
+  </data>
+  <data name="ukrainian" xml:space="preserve">
+    <value>Ukrainian</value>
+  </data>
+  <data name="czech" xml:space="preserve">
+    <value>Czech</value>
+  </data>
+  <data name="croatian" xml:space="preserve">
+    <value>Croatian</value>
+  </data>
+  <data name="turkish" xml:space="preserve">
+    <value>Turkish</value>
+  </data>
+  <data name="US" xml:space="preserve">
+    <value>USA</value>
+  </data>
+  <data name="DE" xml:space="preserve">
+    <value>Germany</value>
+  </data>
+  <data name="RU" xml:space="preserve">
+    <value>Russia</value>
+  </data>
+  <data name="FR" xml:space="preserve">
+    <value>France</value>
+  </data>
+  <data name="GR" xml:space="preserve">
+    <value>Greece</value>
+  </data>
+  <data name="CN" xml:space="preserve">
+    <value>China</value>
+  </data>
+  <data name="GB" xml:space="preserve">
+    <value>UK</value>
+  </data>
+  <data name="AU" xml:space="preserve">
+    <value>Australia</value>
+  </data>
+  <data name="MX" xml:space="preserve">
+    <value>Mexico</value>
+  </data>
+  <data name="IT" xml:space="preserve">
+    <value>Italy</value>
+  </data>
+  <data name="CA" xml:space="preserve">
+    <value>Canada</value>
+  </data>
+  <data name="IN" xml:space="preserve">
+    <value>India</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
+  <data name="BR" xml:space="preserve">
+    <value>Brazil</value>
+  </data>
+  <data name="ES" xml:space="preserve">
+    <value>Spain</value>
+  </data>
+  <data name="PL" xml:space="preserve">
+    <value>Poland</value>
+  </data>
+  <data name="PH" xml:space="preserve">
+    <value>Philippines</value>
+  </data>
+  <data name="AR" xml:space="preserve">
+    <value>Argentina</value>
+  </data>
+  <data name="NL" xml:space="preserve">
+    <value>Netherlands</value>
+  </data>
+  <data name="AE" xml:space="preserve">
+    <value>United Arab Emirates</value>
+  </data>
+  <data name="UG" xml:space="preserve">
+    <value>Uganda</value>
+  </data>
+  <data name="CH" xml:space="preserve">
+    <value>Switzerland</value>
+  </data>
+  <data name="RO" xml:space="preserve">
+    <value>Romania</value>
+  </data>
+  <data name="CO" xml:space="preserve">
+    <value>Colombia</value>
+  </data>
+  <data name="TR" xml:space="preserve">
+    <value>Turkey</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>Indonesia</value>
+  </data>
+  <data name="BE" xml:space="preserve">
+    <value>Belgium</value>
+  </data>
+  <data name="CL" xml:space="preserve">
+    <value>Chile</value>
+  </data>
+  <data name="RS" xml:space="preserve">
+    <value>Serbia</value>
+  </data>
+  <data name="AT" xml:space="preserve">
+    <value>Austria</value>
+  </data>
+  <data name="HU" xml:space="preserve">
+    <value>Hungary</value>
+  </data>
+  <data name="PE" xml:space="preserve">
+    <value>Peru</value>
+  </data>
+  <data name="UA" xml:space="preserve">
+    <value>Ukraine</value>
+  </data>
+  <data name="JP" xml:space="preserve">
+    <value>Japan</value>
+  </data>
+  <data name="SK" xml:space="preserve">
+    <value>Slovakia</value>
+  </data>
+  <data name="EC" xml:space="preserve">
+    <value>Ecuador</value>
+  </data>
+  <data name="NZ" xml:space="preserve">
+    <value>New Zealand</value>
+  </data>
+  <data name="BA" xml:space="preserve">
+    <value>Bosnia and Herzegovina</value>
+  </data>
+  <data name="FI" xml:space="preserve">
+    <value>Finland</value>
+  </data>
+  <data name="AF" xml:space="preserve">
+    <value>Afghanistan</value>
+  </data>
+  <data name="bosnian" xml:space="preserve">
+    <value>Bosnian</value>
+  </data>
+  <data name="finnish" xml:space="preserve">
+    <value>Finnish</value>
+  </data>
+  <data name="Recommend" xml:space="preserve">
+    <value>Recommend</value>
+  </data>
+  <data name="OnlineStations" xml:space="preserve">
+    <value>Online Stations</value>
+  </data>
+  <data name="RecentStations" xml:space="preserve">
+    <value>Recent Stations</value>
+  </data>
+  <data name="Collections" xml:space="preserve">
+    <value>Collections</value>
+  </data>
+  <data name="SearchStations" xml:space="preserve">
+    <value>Search Stations</value>
+  </data>
 </root>

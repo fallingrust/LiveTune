@@ -54,7 +54,6 @@ namespace LiveTune.ViewModels
             Languages.Add(new RadioItem("全部", true));
             Languages.Add(new RadioItem("中文"));
             Languages.Add(new RadioItem("英语"));
-
             Countries.Add(new RadioItem("全部", true));
             Countries.Add(new RadioItem("中国"));
             Countries.Add(new RadioItem("美国"));
