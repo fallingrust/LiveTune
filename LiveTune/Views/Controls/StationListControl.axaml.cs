@@ -1,10 +1,10 @@
 using Avalonia;
+using Avalonia.Animation;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Messaging;
 using LiveTune.Models;
-using LiveTune.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,14 +14,15 @@ namespace LiveTune.Views.Controls;
 public partial class StationListControl : UserControl
 {
     public static readonly StyledProperty<IEnumerable<StationListItem>> ItemSourceProperty = AvaloniaProperty.Register<StationListControl, IEnumerable<StationListItem>>(nameof(ItemSource));
-
-    public IEnumerable<StationListItem> ItemSource { get => GetValue(ItemSourceProperty); set => SetValue(ItemSourceProperty, value); }
+    public static readonly StyledProperty<bool> IsLoadingProperty = AvaloniaProperty.Register<StationListControl, bool>(nameof(IsLoading));
     public static readonly RoutedEvent<RoutedEventArgs> LoadMoreEvent = RoutedEvent.Register<StationListControl, RoutedEventArgs>(nameof(LoadMore), RoutingStrategies.Direct);
+    public IEnumerable<StationListItem> ItemSource { get => GetValue(ItemSourceProperty); set => SetValue(ItemSourceProperty, value); }
+    public bool IsLoading { get => GetValue(IsLoadingProperty); set => SetValue(IsLoadingProperty, value); }
 
     public event EventHandler<RoutedEventArgs> LoadMore{add => AddHandler(LoadMoreEvent, value);remove => RemoveHandler(LoadMoreEvent, value); }
 
     public StationListControl()
-    {
+    {       
         InitializeComponent();       
         PART_ListBox_StationList.PointerWheelChanged += OnStationListPointerWheelChanged;
         WeakReferenceMessenger.Default.Register<StationListControl, Messages.RadioLikeMessage>(this, OnRadioLikeMessageReceived);

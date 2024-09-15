@@ -10,134 +10,15 @@
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <ListBox
-        x:Name="PART_ListBox_StationList"
-        Background="Transparent"
-        ItemsSource="{Binding $parent[local:StationListControl].ItemSource}"
-        ScrollViewer.VerticalScrollBarVisibility="Visible">
-        <ListBox.DataTemplates>
-            <DataTemplate DataType="{x:Type models:StationListItem}">
-                <Grid ShowGridLines="False">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="4*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <DockPanel>
-                        <Image
-                            Width="20"
-                            Height="20"
-                            Margin="8,0,0,0"
-                            asyncImageLoader:ImageLoader.Source="{Binding FaviconUrl}" />
-
-                        <StackPanel
-                            x:Name="PART_StackPanel_Option"
-                            Margin="0,0,8,0"
-                            HorizontalAlignment="Right"
-                            DockPanel.Dock="Right"
-                            Orientation="Horizontal">
-                            <Button
-                                Margin="0,0,20,0"
-                                Background="Transparent"
-                                Click="OnLikeButtonClick"
-                                Theme="{StaticResource IconButton}">
-                                <Button.Content>
-                                    <PathIcon
-                                        Width="16"
-                                        Height="16"
-                                        Classes.Like="{Binding IsLike}"
-                                        Data="{StaticResource icon_like}">
-                                        <PathIcon.Styles>
-
-                                            <Style Selector="PathIcon.Like">
-                                                <Setter Property="PathIcon.Foreground" Value="red" />
-                                            </Style>
-                                            <Style Selector="Button > PathIcon">
-                                                <Setter Property="PathIcon.Foreground" Value="#7b7b7b" />
-                                            </Style>
-                                            <Style Selector="Button:pointerover > PathIcon">
-                                                <Setter Property="PathIcon.Foreground" Value="red" />
-                                            </Style>
-
-                                        </PathIcon.Styles>
-                                    </PathIcon>
-                                </Button.Content>
-                            </Button>
-                            <Button
-                                Margin="0,0,8,0"
-                                Background="Transparent"
-                                Click="OnPlayButtonClick"
-                                Theme="{StaticResource IconButton}">
-                                <Button.Content>
-                                    <PathIcon
-                                        Width="16"
-                                        Height="16"
-                                        Data="{StaticResource icon_play}">
-                                        <PathIcon.Styles>
-                                            <Style Selector="Button > PathIcon">
-                                                <Setter Property="PathIcon.Foreground" Value="#7b7b7b" />
-                                            </Style>
-                                            <Style Selector="Button:pointerover > PathIcon">
-                                                <Setter Property="PathIcon.Foreground" Value="#1fd2a8" />
-                                            </Style>
-                                        </PathIcon.Styles>
-                                    </PathIcon>
-                                </Button.Content>
-                            </Button>
-                            <StackPanel.Styles>
-                                <Style Selector="ListBoxItem>Grid>DockPanel> StackPanel">
-                                    <Setter Property="StackPanel.IsVisible" Value="False" />
-                                </Style>
-                                <Style Selector="ListBoxItem:pointerover >Grid>DockPanel> StackPanel">
-                                    <Setter Property="StackPanel.IsVisible" Value="True" />
-                                </Style>
-                                <Style Selector="ListBoxItem:selected >Grid>DockPanel> StackPanel">
-                                    <Setter Property="StackPanel.IsVisible" Value="True" />
-                                </Style>
-                            </StackPanel.Styles>
-                        </StackPanel>
-
-                        <TextBlock
-                            Margin="8,0,0,0"
-                            VerticalAlignment="Center"
-                            Text="{Binding StationName}"
-                            ToolTip.Tip="{Binding StationName}" />
-
-                    </DockPanel>
-                    <TextBlock
-                        Grid.Column="1"
-                        Margin="8,0,0,0"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Text="{Binding Country}" />
-                    <TextBlock
-                        Grid.Column="2"
-                        Margin="8,0,0,0"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Text="{Binding Language}" />
-
-                    <TextBlock
-                        Grid.Column="3"
-                        Margin="8,0,0,0"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Text="{Binding ClickCount}" />
-                    <TextBlock
-                        Grid.Column="4"
-                        Margin="8,0,0,0"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Text="{Binding VoteCount}" />
-                </Grid>
-            </DataTemplate>
-        </ListBox.DataTemplates>
-        <ListBox.Template>
-            <ControlTemplate>
-                <DockPanel LastChildFill="True">
-                    <Grid Height="32" DockPanel.Dock="Top">
+    <Grid>
+        <ListBox
+            x:Name="PART_ListBox_StationList"
+            Background="Transparent"
+            ItemsSource="{Binding $parent[local:StationListControl].ItemSource}"
+            ScrollViewer.VerticalScrollBarVisibility="Visible">
+            <ListBox.DataTemplates>
+                <DataTemplate DataType="{x:Type models:StationListItem}">
+                    <Grid ShowGridLines="False">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="4*" />
                             <ColumnDefinition Width="*" />
@@ -145,74 +26,195 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <TextBlock
-                            Grid.Column="0"
-                            Margin="32,0,0,0"
-                            HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                            Foreground="#7b7b7b"
-                            Text="站点" />
+                        <DockPanel>
+                            <Image
+                                Width="20"
+                                Height="20"
+                                Margin="8,0,0,0"
+                                asyncImageLoader:ImageLoader.Source="{Binding FaviconUrl}" />
+
+                            <StackPanel
+                                x:Name="PART_StackPanel_Option"
+                                Margin="0,0,8,0"
+                                HorizontalAlignment="Right"
+                                DockPanel.Dock="Right"
+                                Orientation="Horizontal">
+                                <Button
+                                    Margin="0,0,20,0"
+                                    Background="Transparent"
+                                    Click="OnLikeButtonClick"
+                                    Theme="{StaticResource IconButton}">
+                                    <Button.Content>
+                                        <PathIcon
+                                            Width="16"
+                                            Height="16"
+                                            Classes.Like="{Binding IsLike}"
+                                            Data="{StaticResource icon_like}">
+                                            <PathIcon.Styles>
+
+                                                <Style Selector="PathIcon.Like">
+                                                    <Setter Property="PathIcon.Foreground" Value="red" />
+                                                </Style>
+                                                <Style Selector="Button > PathIcon">
+                                                    <Setter Property="PathIcon.Foreground" Value="#7b7b7b" />
+                                                </Style>
+                                                <Style Selector="Button:pointerover > PathIcon">
+                                                    <Setter Property="PathIcon.Foreground" Value="red" />
+                                                </Style>
+
+                                            </PathIcon.Styles>
+                                        </PathIcon>
+                                    </Button.Content>
+                                </Button>
+                                <Button
+                                    Margin="0,0,8,0"
+                                    Background="Transparent"
+                                    Click="OnPlayButtonClick"
+                                    Theme="{StaticResource IconButton}">
+                                    <Button.Content>
+                                        <PathIcon
+                                            Width="16"
+                                            Height="16"
+                                            Data="{StaticResource icon_play}">
+                                            <PathIcon.Styles>
+                                                <Style Selector="Button > PathIcon">
+                                                    <Setter Property="PathIcon.Foreground" Value="#7b7b7b" />
+                                                </Style>
+                                                <Style Selector="Button:pointerover > PathIcon">
+                                                    <Setter Property="PathIcon.Foreground" Value="#1fd2a8" />
+                                                </Style>
+                                            </PathIcon.Styles>
+                                        </PathIcon>
+                                    </Button.Content>
+                                </Button>
+                                <StackPanel.Styles>
+                                    <Style Selector="ListBoxItem>Grid>DockPanel> StackPanel">
+                                        <Setter Property="StackPanel.IsVisible" Value="False" />
+                                    </Style>
+                                    <Style Selector="ListBoxItem:pointerover >Grid>DockPanel> StackPanel">
+                                        <Setter Property="StackPanel.IsVisible" Value="True" />
+                                    </Style>
+                                    <Style Selector="ListBoxItem:selected >Grid>DockPanel> StackPanel">
+                                        <Setter Property="StackPanel.IsVisible" Value="True" />
+                                    </Style>
+                                </StackPanel.Styles>
+                            </StackPanel>
+
+                            <TextBlock
+                                Margin="8,0,0,0"
+                                VerticalAlignment="Center"
+                                Text="{Binding StationName}"
+                                ToolTip.Tip="{Binding StationName}" />
+
+                        </DockPanel>
                         <TextBlock
                             Grid.Column="1"
+                            Margin="8,0,0,0"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Foreground="#7b7b7b"
-                            Text="国家" />
+                            Text="{Binding Country}" />
                         <TextBlock
                             Grid.Column="2"
+                            Margin="8,0,0,0"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Foreground="#7b7b7b"
-                            Text="语言" />
+                            Text="{Binding Language}" />
+
                         <TextBlock
                             Grid.Column="3"
+                            Margin="8,0,0,0"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Foreground="#7b7b7b"
-                            Text="点击数" />
+                            Text="{Binding ClickCount}" />
                         <TextBlock
                             Grid.Column="4"
+                            Margin="8,0,0,0"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Center"
-                            Foreground="#7b7b7b"
-                            Text="投票数" />
+                            Text="{Binding VoteCount}" />
                     </Grid>
-                    <Border
-                        Name="border"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        ClipToBounds="{TemplateBinding ClipToBounds}"
-                        CornerRadius="{TemplateBinding CornerRadius}">
-                        <ScrollViewer
-                            Name="PART_ScrollViewer"
-                            AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
-                            BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
-                            HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
-                            HorizontalSnapPointsType="{TemplateBinding (ScrollViewer.HorizontalSnapPointsType)}"
-                            IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
-                            IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
-                            IsScrollInertiaEnabled="{TemplateBinding (ScrollViewer.IsScrollInertiaEnabled)}"
-                            VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
-                            VerticalSnapPointsType="{TemplateBinding (ScrollViewer.VerticalSnapPointsType)}">
-                            <ItemsPresenter
-                                Name="PART_ItemsPresenter"
-                                Margin="{TemplateBinding Padding}"
-                                ItemsPanel="{TemplateBinding ItemsPanel}" />
-                        </ScrollViewer>
-                    </Border>
-                </DockPanel>
-            </ControlTemplate>
-        </ListBox.Template>
-        <ListBox.Styles>
-            <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="#efefef" />
-                <Setter Property="Foreground" Value="#06ce74" />
-            </Style>
-            <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="#efefef" />
-                <Setter Property="Foreground" Value="#06ce74" />
-            </Style>
-        </ListBox.Styles>
-    </ListBox>
+                </DataTemplate>
+            </ListBox.DataTemplates>
+            <ListBox.Template>
+                <ControlTemplate>
+                    <DockPanel LastChildFill="True">
+                        <Grid Height="32" DockPanel.Dock="Top">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                Grid.Column="0"
+                                Margin="32,0,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                Foreground="#7b7b7b"
+                                Text="站点" />
+                            <TextBlock
+                                Grid.Column="1"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Foreground="#7b7b7b"
+                                Text="国家" />
+                            <TextBlock
+                                Grid.Column="2"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Foreground="#7b7b7b"
+                                Text="语言" />
+                            <TextBlock
+                                Grid.Column="3"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Foreground="#7b7b7b"
+                                Text="点击数" />
+                            <TextBlock
+                                Grid.Column="4"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Foreground="#7b7b7b"
+                                Text="投票数" />
+                        </Grid>
+                        <Border
+                            Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            ClipToBounds="{TemplateBinding ClipToBounds}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                            <ScrollViewer
+                                Name="PART_ScrollViewer"
+                                AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
+                                BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
+                                HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
+                                HorizontalSnapPointsType="{TemplateBinding (ScrollViewer.HorizontalSnapPointsType)}"
+                                IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
+                                IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
+                                IsScrollInertiaEnabled="{TemplateBinding (ScrollViewer.IsScrollInertiaEnabled)}"
+                                VerticalScrollBarVisibility="{TemplateBinding (ScrollViewer.VerticalScrollBarVisibility)}"
+                                VerticalSnapPointsType="{TemplateBinding (ScrollViewer.VerticalSnapPointsType)}">
+                                <ItemsPresenter
+                                    Name="PART_ItemsPresenter"
+                                    Margin="{TemplateBinding Padding}"
+                                    ItemsPanel="{TemplateBinding ItemsPanel}" />
+                            </ScrollViewer>
+                        </Border>
+                    </DockPanel>
+                </ControlTemplate>
+            </ListBox.Template>
+            <ListBox.Styles>
+                <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="#efefef" />
+                    <Setter Property="Foreground" Value="#06ce74" />
+                </Style>
+                <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="#efefef" />
+                    <Setter Property="Foreground" Value="#06ce74" />
+                </Style>
+            </ListBox.Styles>
+        </ListBox>
+    </Grid>
 </UserControl>
