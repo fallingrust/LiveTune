@@ -28,7 +28,6 @@ public partial class MainView : UserControl
             else
             {
                 var page = new SearchPage(tb.Text);
-                vm.CurrentPage = new SearchPage(tb.Text);
                 WeakReferenceMessenger.Default.Send(new Messages.NavigateViewMessage(page));
             }
         }

@@ -31,6 +31,7 @@ namespace LiveTune.ViewModels
         public async Task LoadFirstAsync()
         {
             if (IsLoading) return;
+            if (string.IsNullOrEmpty(SearchContent)) return;
             IsError = false; 
             IsLoading = true;
             Offset = 0;
@@ -66,6 +67,7 @@ namespace LiveTune.ViewModels
         public async Task LoadNextAsync()
         {
             if (IsLoading) return;
+            if (string.IsNullOrEmpty(SearchContent)) return;
             IsError = false;
             IsLoading = true;
             Offset += PageSize;

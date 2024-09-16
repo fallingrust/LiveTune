@@ -372,4 +372,13 @@
   <data name="Votes" xml:space="preserve">
     <value>点赞数</value>
   </data>
+  <data name="TopClick" xml:space="preserve">
+    <value>最多点击</value>
+  </data>
+  <data name="TopVote" xml:space="preserve">
+    <value>最多点赞</value>
+  </data>
+  <data name="RencentClick" xml:space="preserve">
+    <value>最近点击</value>
+  </data>
 </root>

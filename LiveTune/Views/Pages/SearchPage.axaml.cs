@@ -7,13 +7,17 @@ namespace LiveTune.Views.Pages;
 public partial class SearchPage : UserControl
 {
     private bool _loaded = false;
-    public SearchPage(string searchContent)
+    public SearchPage()
     {
         InitializeComponent();
         Loaded += OnSearchPageLoaded;
+    }
+    public SearchPage(string searchContent) : this()
+    {
         if (DataContext is SearchPageViewModel vm)
             vm.SearchContent = searchContent;
     }
+   
     private async void OnStationListControlLoadMore(object? sender, RoutedEventArgs e)
     {
         if (DataContext is SearchPageViewModel vm)

@@ -646,6 +646,15 @@ namespace LiveTune.Assets {
         }
         
         /// <summary>
+        ///   查找类似 最近点击 的本地化字符串。
+        /// </summary>
+        public static string RencentClick {
+            get {
+                return ResourceManager.GetString("RencentClick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 罗马尼亚 的本地化字符串。
         /// </summary>
         public static string RO {
@@ -759,6 +768,24 @@ namespace LiveTune.Assets {
         public static string tamil {
             get {
                 return ResourceManager.GetString("tamil", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 最多点击 的本地化字符串。
+        /// </summary>
+        public static string TopClick {
+            get {
+                return ResourceManager.GetString("TopClick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 最多点赞 的本地化字符串。
+        /// </summary>
+        public static string TopVote {
+            get {
+                return ResourceManager.GetString("TopVote", resourceCulture);
             }
         }
         

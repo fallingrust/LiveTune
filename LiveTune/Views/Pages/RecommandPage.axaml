@@ -2,18 +2,14 @@
     x:Class="LiveTune.Views.Pages.RecommandPage"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:assets="clr-namespace:LiveTune.Assets"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="450"
     d:DesignWidth="800"
     mc:Ignorable="d">
-    <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-        <ListBox.ItemsPanel>
-            <ItemsPanelTemplate>
-                <WrapPanel />
-            </ItemsPanelTemplate>
-        </ListBox.ItemsPanel>
-        <ListBoxItem>
+    <WrapPanel>
+        <Button Click="OnTopClickButtonClick">
             <StackPanel>
                 <Border
                     Width="240"
@@ -23,43 +19,68 @@
                     CornerRadius="8">
                     <Image Source="avares://LiveTune/Assets/1.jpg" Stretch="Fill" />
                 </Border>
-                <TextBlock Margin="8,8,0,0" Text="今日热点" />
+                <TextBlock Margin="8,8,0,0" Text="{x:Static assets:Resources.TopClick}" />
             </StackPanel>
-        </ListBoxItem>
-        <ListBoxItem>
+            <Button.Styles>
+                <Style Selector="Button">
+                    <Setter Property="Background" Value="Transparent" />
+                </Style>
+                <Style Selector="Button.Styles:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="Transparent" />
+                </Style>
+                <Style Selector="Button.Styles:pressed /template/ContentPresenter#PART_ContentPresenter,ToggleButton:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="Transparent" />
+                </Style>
+            </Button.Styles>
+        </Button>
+        <Button Click="OnTopVoteButtonClick">
             <StackPanel>
                 <Border
                     Width="240"
                     Height="135"
+                    Background="Red"
+                    ClipToBounds="True"
                     CornerRadius="8">
-                    <Border.Background>
-                        <ImageBrush Source="avares://LiveTune/Assets/2.jpg" Stretch="Fill" />
-                    </Border.Background>
+                    <Image Source="avares://LiveTune/Assets/2.jpg" Stretch="Fill" />
                 </Border>
-                <TextBlock Margin="8,8,0,0" Text="最近更新" />
+                <TextBlock Margin="8,8,0,0" Text="{x:Static assets:Resources.TopVote}" />
             </StackPanel>
-        </ListBoxItem>
-        <ListBoxItem>
+            <Button.Styles>
+                <Style Selector="Button">
+                    <Setter Property="Background" Value="Transparent" />
+                </Style>
+                <Style Selector="Button.Styles:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="Transparent" />
+                </Style>
+                <Style Selector="Button.Styles:pressed /template/ContentPresenter#PART_ContentPresenter,ToggleButton:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="Transparent" />
+                </Style>
+            </Button.Styles>
+        </Button>
+        <Button Click="OnRencentClickButtonClick">
             <StackPanel>
                 <Border
                     Width="240"
+                    Height="135"
+                    Background="Red"
                     ClipToBounds="True"
                     CornerRadius="8">
                     <Image Source="avares://LiveTune/Assets/3.jpg" Stretch="Fill" />
                 </Border>
-                <TextBlock Margin="8,8,0,0" Text="最多投票" />
+                <TextBlock Margin="8,8,0,0" Text="{x:Static assets:Resources.RencentClick}" />
             </StackPanel>
-        </ListBoxItem>
-        <ListBox.Styles>
-            <Style Selector="ListBoxItem">
-                <Setter Property="Cursor" Value="Hand" />
-            </Style>
-            <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="Transparent" />
-            </Style>
-            <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
-                <Setter Property="Background" Value="Transparent" />
-            </Style>
-        </ListBox.Styles>
-    </ListBox>
+            <Button.Styles>
+                <Style Selector="Button">
+                    <Setter Property="Background" Value="Transparent" />
+                </Style>
+                <Style Selector="Button.Styles:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="Transparent" />
+                </Style>
+                <Style Selector="Button.Styles:pressed /template/ContentPresenter#PART_ContentPresenter,ToggleButton:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                    <Setter Property="Background" Value="Transparent" />
+                </Style>
+            </Button.Styles>
+        </Button>
+    </WrapPanel>
+
 </UserControl>

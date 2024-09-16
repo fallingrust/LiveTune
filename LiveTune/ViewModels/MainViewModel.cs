@@ -1,4 +1,5 @@
 ﻿using Avalonia.Controls;
+using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Messaging;
 using LiveTune.Views.Pages;
 using System.Collections.Generic;
@@ -35,6 +36,7 @@ public partial class MainViewModel : ViewModelBase
     private static void OnNavigateViewMessageReceived(MainViewModel vm, Messages.NavigateViewMessage message)
     {
         vm._viewStacks.Push(message.Value);
+        Dispatcher.UIThread.Post(() => vm.CurrentPage = message.Value);
     }
     private void MenuSelectedHandler(ListBoxItem? item)
     {
