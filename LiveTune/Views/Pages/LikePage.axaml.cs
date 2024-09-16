@@ -1,39 +1,33 @@
 using Avalonia.Controls;
-using LiveTune.DataBase;
-using LiveTune.Models;
+using Avalonia.Interactivity;
 using LiveTune.ViewModels;
+using LiveTune.Views.Interfaces;
+using System.Threading.Tasks;
 
 namespace LiveTune.Views.Pages;
 
-public partial class LikePage : UserControl
+public partial class LikePage : UserControl, IPage
 {
+    private bool _loaded = false;
     public LikePage()
     {
         InitializeComponent();
         Loaded += OnLikePageLoaded;
     }
 
-    private void OnLikePageLoaded(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
-    {
-        FirstLoad();
-    }
-
-
-    private void FirstLoad()
+    public async Task RefreshAsync()
     {
         if (DataContext is LikePageViewModel vm)
         {
-            vm.StationItemSource.Clear();
-            var likeStations = DbCtx.GetLikeStations(0, 100);
-            foreach (var station in likeStations)
-            {
-                vm.StationItemSource.Add(StationListItem.Parse(station));
-            }
+            await vm.LoadFirstAsync();
         }
     }
 
-    private void LoadNextPage()
+    private async void OnLikePageLoaded(object? sender, RoutedEventArgs e)
     {
-
+        if (DataContext is LikePageViewModel vm)
+        {
+            await vm.LoadFirstAsync();
+        }
     }
 }

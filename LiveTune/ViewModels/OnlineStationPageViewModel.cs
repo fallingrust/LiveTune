@@ -3,11 +3,9 @@ using System.Collections.ObjectModel;
 using LiveTune.Views.Interfaces;
 using System.Threading.Tasks;
 using LiveTune.Utils;
-using RadioBrowserSharp.Models;
 using RadioBrowserSharp;
 using System;
 using System.Collections.Generic;
-using System.Resources;
 
 namespace LiveTune.ViewModels
 {

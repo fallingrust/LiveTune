@@ -4,6 +4,7 @@ using Tenray.ZoneTree.Serializers;
 using Tenray.ZoneTree;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace LiveTune.DataBase
 {
@@ -60,6 +61,7 @@ namespace LiveTune.DataBase
                 {
                     stations.Add(iter.CurrentValue);
                 }
+                stations = [.. stations.OrderByDescending(p => p.LikeTime)];
                 lock (LikeStationsMutex)
                 {
                     LikeStations.Clear();
@@ -71,38 +73,36 @@ namespace LiveTune.DataBase
 
         public static void AddOrUpdateRencentStation(RencentStationEntity rencentStationEntity)
         {
-           
             RencentCache.Upsert(rencentStationEntity.StationId, rencentStationEntity);
             lock (RencentStationsMutex)
             {
                 var rencentStation = RencentStations.FirstOrDefault(p => p.StationId == rencentStationEntity.StationId);
-                int index = 0;
+              
                 if (rencentStation != null)
-                {
-                    index = RencentStations.IndexOf(rencentStation);
-                    RencentStations.RemoveAt(index);
-                }
-                RencentStations.Insert(index, rencentStationEntity);
+                    RencentStations.Remove(rencentStation);
+
+                RencentStations.Add(rencentStationEntity);
 
                 var rencentStations = RencentStations.OrderByDescending(p => p.PlayTime).ToList();
                 RencentStations.Clear();
                 RencentStations.AddRange(rencentStations);
             }
-           
         }
 
-        public static IEnumerable<RencentStationEntity> GetRencentStations(int offset,int count)
+        public static async Task<IEnumerable<RencentStationEntity>> GetRencentStationsAsync(int offset,int count)
         {
-            lock (RencentStationsMutex)
+            return await Task.Run(() =>
             {
-                return RencentStations.Skip(offset).Take(count);
-            }
+                lock (RencentStationsMutex)
+                {
+                    return RencentStations.Skip(offset).Take(count);
+                }
+            });
         }
 
 
         public static void AddOrRemoveLikeStation(LikeStationEntity likeStationEntity)
         {
-           
             if (LikeCache.ContainsKey(likeStationEntity.StationId))
             {
                 LikeCache.ForceDelete(likeStationEntity.StationId);
@@ -119,16 +119,22 @@ namespace LiveTune.DataBase
                 lock (LikeStationsMutex)
                 {
                     LikeStations.Add(likeStationEntity);
+                    var likeStations = LikeStations.OrderByDescending(p => p.LikeTime).ToList();
+                    LikeStations.Clear();
+                    LikeStations.AddRange(likeStations);
                 }
             }
         }
 
-        public static IEnumerable<LikeStationEntity> GetLikeStations(int offset, int count)
+        public static async Task<IEnumerable<LikeStationEntity>> GetLikeStationsAsync(int offset, int count)
         {
-            lock (LikeStationsMutex)
+            return await Task.Run(() =>
             {
-                return LikeStations.Skip(offset).Take(count);
-            }
+                lock (LikeStationsMutex)
+                {
+                    return LikeStations.Skip(offset).Take(count);
+                }
+            });
         }
 
         public static bool IsLikeStation(string stationId)

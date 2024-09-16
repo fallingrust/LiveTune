@@ -3,6 +3,7 @@ using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Messaging;
+using LiveTune.DataBase;
 using LiveTune.Models;
 using System;
 using System.Collections.Generic;
@@ -67,6 +68,7 @@ public partial class StationListControl : UserControl
         if (sender is Button btn && btn.DataContext is StationListItem item)
         {
             item.IsLike = !item.IsLike;
+            DbCtx.AddOrRemoveLikeStation(LikeStationEntity.Parse(item));
             WeakReferenceMessenger.Default.Send(new Messages.RadioLikeMessage(item));
         }
     }
@@ -76,19 +78,4 @@ public partial class StationListControl : UserControl
         var args = new RoutedEventArgs(ReloadEvent);
         RaiseEvent(args);
     }
-
-    //private void OnStationListLoaded(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
-    //{
-    //    _scrollViewer = PART_ListBox_StationList.GetTemplateChildren().FirstOrDefault(p => p.Name == "PART_ScrollViewer") as ScrollViewer;
-
-    //    if (_scrollViewer != null)
-    //    {
-    //        _scrollViewer.ScrollChanged += OnScrollChanged;
-    //    }
-    //}
-
-    //private void OnScrollChanged(object? sender, ScrollChangedEventArgs e)
-    //{
-    //    Debug.WriteLine($"{e.OffsetDelta.X}  {e.OffsetDelta.Y}   {e.ViewportDelta.X}  {e.ViewportDelta.Y} {_scrollViewer.Offset.Y}    {_scrollViewer.Viewport.Height} {_scrollViewer.Extent.Height}");
-    //}
 }

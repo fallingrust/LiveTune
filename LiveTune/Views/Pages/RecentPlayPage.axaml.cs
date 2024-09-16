@@ -1,29 +1,32 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using LiveTune.DataBase;
-using LiveTune.Models;
 using LiveTune.ViewModels;
+using LiveTune.Views.Interfaces;
+using System.Threading.Tasks;
 
 namespace LiveTune.Views.Pages;
 
-public partial class RecentPlayPage : UserControl
+public partial class RecentPlayPage : UserControl, IPage
 {
+    private bool _loaded = false;
     public RecentPlayPage()
     {
         InitializeComponent();
         Loaded += OnRecentPlayPageLoaded;
     }
+    public async Task RefreshAsync()
+    {
+        if (DataContext is LikePageViewModel vm)
+        {
+            await vm.LoadFirstAsync();
+        }
+    }
 
-    private void OnRecentPlayPageLoaded(object? sender, RoutedEventArgs e)
+    private async void OnRecentPlayPageLoaded(object? sender, RoutedEventArgs e)
     {
         if (DataContext is RecentPlayPageViewModel vm)
         {
-            vm.StationItemSource.Clear();
-            var rencentStations = DbCtx.GetRencentStations(0, 100);
-            foreach (var station in rencentStations)
-            {
-                vm.StationItemSource.Add(StationListItem.Parse(station));
-            }
+            await vm.LoadFirstAsync();
         }
     }
 }

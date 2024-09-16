@@ -25,6 +25,7 @@ namespace LiveTune.DataBase
         public string Url { get; set; } = string.Empty;
         public string StationId { get; set; } = string.Empty;
         public bool IsLikeStation { get; set; }
+        public string LikeTime { get; set; } = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         public static LikeStationEntity Parse(StationListItem item)
         {
             return new LikeStationEntity()
