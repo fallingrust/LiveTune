@@ -14,7 +14,7 @@
     <UserControl.DataContext>
         <viewmodels:OnlineStationPageViewModel />
     </UserControl.DataContext>
-    <DockPanel LastChildFill="False">
+    <DockPanel LastChildFill="True">
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
             <ListBox
                 Background="Transparent"
@@ -64,7 +64,58 @@
             </ListBox>
         </StackPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
-            <ListBox Background="Transparent" ItemsSource="{Binding Countries}">
+            <ListBox
+                Background="Transparent"
+                ItemsSource="{Binding Countries}"
+                SelectedItem="{Binding SelecteCountry}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemContainerTheme>
+                    <ControlTheme
+                        x:DataType="models:RadioItem"
+                        BasedOn="{StaticResource {x:Type ListBoxItem}}"
+                        TargetType="ListBoxItem">
+                        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                    </ControlTheme>
+                </ListBox.ItemContainerTheme>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border
+                            BorderBrush="#e1e1e1"
+                            BorderThickness="1"
+                            CornerRadius="12">
+                            <TextBlock
+                                Margin="20,6,20,6"
+                                FontSize="12"
+                                Text="{Binding Content}" />
+                            <Border.Styles>
+                                <Style Selector="ListBoxItem:selected >Border">
+                                    <Setter Property="Background" Value="#06ce74" />
+                                </Style>
+                            </Border.Styles>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.Styles>
+                    <Style Selector="ListBoxItem:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Foreground" Value="#06ce74" />
+                    </Style>
+                    <Style Selector="ListBoxItem:selected /template/ContentPresenter#PART_ContentPresenter">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Foreground" Value="White" />
+                    </Style>
+                </ListBox.Styles>
+            </ListBox>
+        </StackPanel>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <ListBox
+                Background="Transparent"
+                ItemsSource="{Binding Tags}"
+                SelectedItem="{Binding SelecteTag}">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <WrapPanel Orientation="Horizontal" />
@@ -109,12 +160,14 @@
             </ListBox>
         </StackPanel>
 
-
         <Border DockPanel.Dock="Top">
             <controls:StationListControl
                 x:Name="PART_StationListControl"
+                IsError="{Binding IsError}"
+                IsLoading="{Binding IsLoading}"
                 ItemSource="{Binding StationItemSource}"
-                LoadMore="OnStationListControlLoadMore" />
+                LoadMore="OnStationListControlLoadMore"
+                Reload="OnStationListControlReload" />
         </Border>
     </DockPanel>
 </UserControl>

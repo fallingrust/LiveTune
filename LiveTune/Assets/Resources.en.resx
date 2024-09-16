@@ -339,4 +339,37 @@
   <data name="SearchStations" xml:space="preserve">
     <value>Search Stations</value>
   </data>
+  <data name="pop" xml:space="preserve">
+    <value>Pop</value>
+  </data>
+  <data name="music" xml:space="preserve">
+    <value>Music</value>
+  </data>
+  <data name="news" xml:space="preserve">
+    <value>News</value>
+  </data>
+  <data name="rock" xml:space="preserve">
+    <value>Rock</value>
+  </data>
+  <data name="classical" xml:space="preserve">
+    <value>Classical</value>
+  </data>
+  <data name="talk" xml:space="preserve">
+    <value>Talk</value>
+  </data>
+  <data name="Station" xml:space="preserve">
+    <value>Station</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="ClickCount" xml:space="preserve">
+    <value>ClickCount</value>
+  </data>
+  <data name="Votes" xml:space="preserve">
+    <value>Votes</value>
+  </data>
 </root>

@@ -1,32 +1,31 @@
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using LiveTune.Utils;
 using LiveTune.ViewModels;
-using RadioBrowserSharp;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace LiveTune.Views.Pages;
 
 public partial class SearchPage : UserControl
 {
-    private int _offset = 0;
     private bool _loaded = false;
-    private string _searchContent = string.Empty;
     public SearchPage(string searchContent)
     {
         InitializeComponent();
         Loaded += OnSearchPageLoaded;
-        _searchContent = searchContent;
+        if (DataContext is SearchPageViewModel vm)
+            vm.SearchContent = searchContent;
     }
     private async void OnStationListControlLoadMore(object? sender, RoutedEventArgs e)
     {
-        await LoadAsync();
+        if (DataContext is SearchPageViewModel vm)
+            await vm.LoadNextAsync();
     }
     public async void UpdateSearchContent(string searchContent)
     {
-        _searchContent = searchContent;
-        await LoadAsync(true);
+        if (DataContext is SearchPageViewModel vm)
+        {
+            vm.SearchContent = searchContent;
+            await vm.LoadFirstAsync();
+        }
     }
 
     private async void OnSearchPageLoaded(object? sender, RoutedEventArgs e)
@@ -34,27 +33,8 @@ public partial class SearchPage : UserControl
         if (!_loaded)
         {
             _loaded = true;
-            await LoadAsync(true);
+            if (DataContext is SearchPageViewModel vm)
+                await vm.LoadFirstAsync();
         }
     }
-
-    public async Task LoadAsync(bool firstLoad = false)
-    {
-        _offset = firstLoad ? 0 : _offset + Consts.PAGE_SIZE;
-        var paramsDic = new Dictionary<string, string>
-        {
-            { "name", _searchContent },
-            { "limit", Consts.PAGE_SIZE.ToString() },
-            { "offset", $"{_offset}" },
-            { "hidebroken", "true" },
-            { "order", "clickcount" }
-        };
-        var radioStations = await RadioBrowserApi.SearchAsync(paramsDic);
-
-        if (radioStations != null && DataContext is SearchPageViewModel vm)
-        {
-            vm.UpdateItemSource(radioStations, firstLoad);
-        }
-    }
-
 }

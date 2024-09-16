@@ -1,7 +1,9 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using CommunityToolkit.Mvvm.Messaging;
 using LiveTune.ViewModels;
+using LiveTune.Views.Interfaces;
 using LiveTune.Views.Pages;
 using System;
 
@@ -25,17 +27,16 @@ public partial class MainView : UserControl
             }
             else
             {
+                var page = new SearchPage(tb.Text);
                 vm.CurrentPage = new SearchPage(tb.Text);
+                WeakReferenceMessenger.Default.Send(new Messages.NavigateViewMessage(page));
             }
         }
     }
 
     private void OnTitleBarPointerPressed(object? sender, PointerPressedEventArgs e)
     {
-        if (e is null)
-        {
-            throw new ArgumentNullException(nameof(e));
-        } (TopLevel.GetTopLevel(this) as Window)?.BeginMoveDrag(e);
+        (TopLevel.GetTopLevel(this) as Window)?.BeginMoveDrag(e);
     }
 
     private void OnCloseButtonClick(object? sender, RoutedEventArgs e)
@@ -70,6 +71,22 @@ public partial class MainView : UserControl
                     pathIcon.Data = data;
                 }
             }
+        }
+    }
+
+    private async void OnRefreshButtonClick(object? sender, RoutedEventArgs e)
+    {
+        if (DataContext is MainViewModel vm && vm.CurrentPage is IPage page)
+        {
+            await page.RefreshAsync();
+        }
+    }
+
+    private void OnNavigateBackButtonClick(object? sender, RoutedEventArgs e)
+    {
+        if (DataContext is MainViewModel vm)
+        {
+            vm.NavigateBack();
         }
     }
 }

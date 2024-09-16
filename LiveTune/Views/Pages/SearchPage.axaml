@@ -13,5 +13,8 @@
     <UserControl.DataContext>
         <viewmodels:SearchPageViewModel />
     </UserControl.DataContext>
-    <controls:StationListControl ItemSource="{Binding StationItemSource}" LoadMore="OnStationListControlLoadMore" />
+    <controls:StationListControl
+        IsLoading="{Binding IsLoading}"
+        ItemSource="{Binding StationItemSource}"
+        LoadMore="OnStationListControlLoadMore" />
 </UserControl>

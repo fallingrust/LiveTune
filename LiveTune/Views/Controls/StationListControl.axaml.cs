@@ -1,5 +1,4 @@
 using Avalonia;
-using Avalonia.Animation;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Threading;
@@ -15,12 +14,15 @@ public partial class StationListControl : UserControl
 {
     public static readonly StyledProperty<IEnumerable<StationListItem>> ItemSourceProperty = AvaloniaProperty.Register<StationListControl, IEnumerable<StationListItem>>(nameof(ItemSource));
     public static readonly StyledProperty<bool> IsLoadingProperty = AvaloniaProperty.Register<StationListControl, bool>(nameof(IsLoading));
+    public static readonly StyledProperty<bool> IsErrorProperty = AvaloniaProperty.Register<StationListControl, bool>(nameof(IsError));
+
     public static readonly RoutedEvent<RoutedEventArgs> LoadMoreEvent = RoutedEvent.Register<StationListControl, RoutedEventArgs>(nameof(LoadMore), RoutingStrategies.Direct);
+    public static readonly RoutedEvent<RoutedEventArgs> ReloadEvent = RoutedEvent.Register<StationListControl, RoutedEventArgs>(nameof(Reload), RoutingStrategies.Direct);
     public IEnumerable<StationListItem> ItemSource { get => GetValue(ItemSourceProperty); set => SetValue(ItemSourceProperty, value); }
     public bool IsLoading { get => GetValue(IsLoadingProperty); set => SetValue(IsLoadingProperty, value); }
-
+    public bool IsError { get => GetValue(IsErrorProperty); set => SetValue(IsErrorProperty, value); }
     public event EventHandler<RoutedEventArgs> LoadMore{add => AddHandler(LoadMoreEvent, value);remove => RemoveHandler(LoadMoreEvent, value); }
-
+    public event EventHandler<RoutedEventArgs> Reload { add => AddHandler(ReloadEvent, value); remove => RemoveHandler(ReloadEvent, value); }
     public StationListControl()
     {       
         InitializeComponent();       
@@ -67,6 +69,12 @@ public partial class StationListControl : UserControl
             item.IsLike = !item.IsLike;
             WeakReferenceMessenger.Default.Send(new Messages.RadioLikeMessage(item));
         }
+    }
+
+    private void OnReloadButtonClick(object? sender, RoutedEventArgs e)
+    {
+        var args = new RoutedEventArgs(ReloadEvent);
+        RaiseEvent(args);
     }
 
     //private void OnStationListLoaded(object? sender, Avalonia.Interactivity.RoutedEventArgs e)

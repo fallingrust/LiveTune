@@ -4,25 +4,26 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    d:DesignHeight="100"
-    d:DesignWidth="100"
+    d:DesignHeight="80"
+    d:DesignWidth="80"
     mc:Ignorable="d">
     <Grid
-        Width="100"
-        Height="100"
-        ClipToBounds="False">
-        <Image
-            Width="50"
-            Height="50"
-            Source="/Assets/favicon.png" />
-        <Path Stroke="SlateBlue" StrokeThickness="4">
+        Width="80"
+        Height="80"
+        Margin="4">
+        <PathIcon
+            Width="30"
+            Height="30"
+            Data="{StaticResource icon_favicon}"
+            Foreground="#06ce74" />
+        <Path Stroke="#06ce74" StrokeThickness="4">
             <Path.Data>
                 <PathGeometry>
-                    <PathFigure IsClosed="False" StartPoint="0,50">
+                    <PathFigure IsClosed="False" StartPoint="0,40">
                         <ArcSegment
                             IsLargeArc="False"
-                            Point="100,50"
-                            Size="50,50"
+                            Point="80,40"
+                            Size="40,40"
                             SweepDirection="Clockwise" />
                     </PathFigure>
                 </PathGeometry>
@@ -31,14 +32,12 @@
                 <Style Selector="Path">
                     <Style.Animations>
                         <Animation IterationCount="INFINITE" Duration="0:0:1">
-
                             <KeyFrame Cue="0%">
                                 <Setter Property="RotateTransform.Angle" Value="0" />
                             </KeyFrame>
                             <KeyFrame Cue="100%">
                                 <Setter Property="RotateTransform.Angle" Value="359" />
                             </KeyFrame>
-
                         </Animation>
                     </Style.Animations>
 

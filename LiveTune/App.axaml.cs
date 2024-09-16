@@ -2,16 +2,11 @@
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using LiveTune.DataBase;
 using LiveTune.ViewModels;
 using LiveTune.Views;
 using LiveTune.Views.Windows;
-using System;
+using System.Globalization;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
-using Tenray.ZoneTree;
-using Tenray.ZoneTree.Comparers;
-using Tenray.ZoneTree.Serializers;
 
 
 namespace LiveTune;
@@ -25,8 +20,8 @@ public partial class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
-        
-        AllocConsole();      
+        Assets.Resources.Culture = new CultureInfo("");
+        AllocConsole();
         BindingPlugins.DataValidators.RemoveAt(0);       
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {

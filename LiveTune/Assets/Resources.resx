@@ -339,4 +339,37 @@
   <data name="SearchStations" xml:space="preserve">
     <value>站点搜索</value>
   </data>
+  <data name="pop" xml:space="preserve">
+    <value>流行音乐</value>
+  </data>
+  <data name="music" xml:space="preserve">
+    <value>音乐</value>
+  </data>
+  <data name="news" xml:space="preserve">
+    <value>新闻</value>
+  </data>
+  <data name="rock" xml:space="preserve">
+    <value>摇滚</value>
+  </data>
+  <data name="classical" xml:space="preserve">
+    <value>古典</value>
+  </data>
+  <data name="talk" xml:space="preserve">
+    <value>脱口秀</value>
+  </data>
+  <data name="Station" xml:space="preserve">
+    <value>站点</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>国家</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>语言</value>
+  </data>
+  <data name="ClickCount" xml:space="preserve">
+    <value>点击数</value>
+  </data>
+  <data name="Votes" xml:space="preserve">
+    <value>点赞数</value>
+  </data>
 </root>

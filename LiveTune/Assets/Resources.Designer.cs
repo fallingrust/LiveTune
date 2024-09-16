@@ -214,6 +214,24 @@ namespace LiveTune.Assets {
         }
         
         /// <summary>
+        ///   查找类似 古典 的本地化字符串。
+        /// </summary>
+        public static string classical {
+            get {
+                return ResourceManager.GetString("classical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 点击数 的本地化字符串。
+        /// </summary>
+        public static string ClickCount {
+            get {
+                return ResourceManager.GetString("ClickCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 中国 的本地化字符串。
         /// </summary>
         public static string CN {
@@ -246,6 +264,15 @@ namespace LiveTune.Assets {
         public static string ConnectingToRadioStation {
             get {
                 return ResourceManager.GetString("ConnectingToRadioStation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 国家 的本地化字符串。
+        /// </summary>
+        public static string Country {
+            get {
+                return ResourceManager.GetString("Country", resourceCulture);
             }
         }
         
@@ -466,11 +493,38 @@ namespace LiveTune.Assets {
         }
         
         /// <summary>
+        ///   查找类似 语言 的本地化字符串。
+        /// </summary>
+        public static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 音乐 的本地化字符串。
+        /// </summary>
+        public static string music {
+            get {
+                return ResourceManager.GetString("music", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 墨西哥 的本地化字符串。
         /// </summary>
         public static string MX {
             get {
                 return ResourceManager.GetString("MX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 新闻 的本地化字符串。
+        /// </summary>
+        public static string news {
+            get {
+                return ResourceManager.GetString("news", resourceCulture);
             }
         }
         
@@ -547,6 +601,15 @@ namespace LiveTune.Assets {
         }
         
         /// <summary>
+        ///   查找类似 流行音乐 的本地化字符串。
+        /// </summary>
+        public static string pop {
+            get {
+                return ResourceManager.GetString("pop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 葡萄牙语 的本地化字符串。
         /// </summary>
         public static string portuguese {
@@ -588,6 +651,15 @@ namespace LiveTune.Assets {
         public static string RO {
             get {
                 return ResourceManager.GetString("RO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 摇滚 的本地化字符串。
+        /// </summary>
+        public static string rock {
+            get {
+                return ResourceManager.GetString("rock", resourceCulture);
             }
         }
         
@@ -664,6 +736,24 @@ namespace LiveTune.Assets {
         }
         
         /// <summary>
+        ///   查找类似 站点 的本地化字符串。
+        /// </summary>
+        public static string Station {
+            get {
+                return ResourceManager.GetString("Station", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 脱口秀 的本地化字符串。
+        /// </summary>
+        public static string talk {
+            get {
+                return ResourceManager.GetString("talk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 泰米尔语 的本地化字符串。
         /// </summary>
         public static string tamil {
@@ -723,6 +813,15 @@ namespace LiveTune.Assets {
         public static string US {
             get {
                 return ResourceManager.GetString("US", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 点赞数 的本地化字符串。
+        /// </summary>
+        public static string Votes {
+            get {
+                return ResourceManager.GetString("Votes", resourceCulture);
             }
         }
     }

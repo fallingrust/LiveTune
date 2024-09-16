@@ -10,10 +10,12 @@ namespace LiveTune.Models
         public string Content { get => _content; set => SetProperty(ref _content, value); }
         public bool IsSelected { get => _isSelected; set => SetProperty(ref _isSelected, value); }
 
-        public RadioItem(string content, bool isSelected = false)
+        public string Tag { get; set; } = string.Empty;
+        public RadioItem(string content, string tag = "", bool isSelected = false)
         {
             Content = content;
             IsSelected = isSelected;
+            Tag = tag;
         }
     }
 }

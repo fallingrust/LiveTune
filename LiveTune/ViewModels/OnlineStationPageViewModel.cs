@@ -1,28 +1,35 @@
 ﻿using LiveTune.Models;
+using System.Collections.ObjectModel;
+using LiveTune.Views.Interfaces;
+using System.Threading.Tasks;
+using LiveTune.Utils;
 using RadioBrowserSharp.Models;
 using RadioBrowserSharp;
-using System.Collections.ObjectModel;
-using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using System.Resources;
 
 namespace LiveTune.ViewModels
 {
-    public class OnlineStationPageViewModel : ViewModelBase
+    public class OnlineStationPageViewModel : ViewModelBase, IStationList
     {
         private RadioItem? _selecteLanguage;
         private RadioItem? _selecteCountry;
         private RadioItem? _selecteTag;
-        private bool _loading = false;
+        private bool _isError;
+        private bool _isLoading;
         public ObservableCollection<StationListItem> StationItemSource { get; set; } = [];
         public ObservableCollection<RadioItem> Languages { get; set; } = [];
         public ObservableCollection<RadioItem> Countries { get; set; } = [];
         public ObservableCollection<RadioItem> Tags { get; set; } = [];
-        public bool Loading { get => _loading; set => SetProperty(ref _loading, value); }
+        
         public RadioItem? SelecteLanguage
         {
             get => _selecteLanguage;
             set
             {
                 SetProperty(ref _selecteLanguage, value);
+                _ = LoadFirstAsync();
             }
         }
         public RadioItem? SelecteCountry
@@ -31,6 +38,7 @@ namespace LiveTune.ViewModels
             set
             {
                 SetProperty(ref _selecteCountry, value);
+                 _ = LoadFirstAsync();
             }
         }
         public RadioItem? SelecteTag
@@ -39,88 +47,129 @@ namespace LiveTune.ViewModels
             set
             {
                 SetProperty(ref _selecteTag, value);
+                _ = LoadFirstAsync();
             }
         }
-        private const int LIMIT = 30;
-        private int _offset = 0;
-      
+
+        public int Offset { get; set; }
+        public int PageSize { get => Consts.PAGE_SIZE; }
+        public bool IsError { get => _isError; set => SetProperty(ref _isError, value); }
+        public bool IsLoading { get => _isLoading; set => SetProperty(ref _isLoading, value); }
+
+
+
         public OnlineStationPageViewModel()
         {
             LoadSearchMenus();
         }
 
-        private void LoadSearchMenus()
+        private  void LoadSearchMenus()
         {
-            Languages.Add(new RadioItem("全部", true));
-            Languages.Add(new RadioItem("中文"));
-            Languages.Add(new RadioItem("英语"));
-            Countries.Add(new RadioItem("全部", true));
-            Countries.Add(new RadioItem("中国"));
-            Countries.Add(new RadioItem("美国"));
-            Countries.Add(new RadioItem("英国"));
+            Countries.Add(new RadioItem(Assets.Resources.All, "All", true));
+            Countries.Add(new RadioItem(Assets.Resources.US, "US"));
+            Countries.Add(new RadioItem(Assets.Resources.DE, "DE"));
+            Countries.Add(new RadioItem(Assets.Resources.RU, "RU"));
+            Countries.Add(new RadioItem(Assets.Resources.FR, "FR"));
+            Countries.Add(new RadioItem(Assets.Resources.GR, "GR"));
+            Countries.Add(new RadioItem(Assets.Resources.CN, "CN"));
+            Countries.Add(new RadioItem(Assets.Resources.GB, "GB"));
+            Countries.Add(new RadioItem(Assets.Resources.AU, "AU"));
 
-            Tags.Add(new RadioItem("全部", true));
-            Tags.Add(new RadioItem("音乐"));
-            Tags.Add(new RadioItem("新闻"));
+
+
+            Languages.Add(new RadioItem("全部", "All", true));
+            Languages.Add(new RadioItem(Assets.Resources.english, "english"));
+            Languages.Add(new RadioItem(Assets.Resources.spanish, "spanish"));
+            Languages.Add(new RadioItem(Assets.Resources.german, "german"));
+            Languages.Add(new RadioItem(Assets.Resources.french, "french"));
+            Languages.Add(new RadioItem(Assets.Resources.chinese, "chinese"));
+            Languages.Add(new RadioItem(Assets.Resources.italian, "italian"));
+            Languages.Add(new RadioItem(Assets.Resources.russian, "russian"));
+            Languages.Add(new RadioItem(Assets.Resources.greek, "greek"));
+
+
+            Tags.Add(new RadioItem("全部", "All", true));
+            Tags.Add(new RadioItem(Assets.Resources.pop, "pop"));
+            Tags.Add(new RadioItem(Assets.Resources.music, "music"));
+            Tags.Add(new RadioItem(Assets.Resources.news, "news"));
+            Tags.Add(new RadioItem(Assets.Resources.rock, "rock"));
+            Tags.Add(new RadioItem(Assets.Resources.classical, "classical"));
+            Tags.Add(new RadioItem(Assets.Resources.talk, "talk"));
         }
 
-        public async Task FirstLoadAsync()
+        public async Task LoadFirstAsync()
         {
-            Loading = true;
-            _offset = 0;
-            var param = new ListStationsParams()
-            {
-                HideBroken = true,
-                Limit = LIMIT,
-                Offset = (uint)_offset,
-                OrderType = OrderType.Name,
-            };
-            var stations = await RadioBrowserApi.ListAllRadioStationsAsync(param);
+            if (IsLoading) return;
 
-            if (stations != null)
-            {
-                StationItemSource.Clear();
-
-                foreach (var station in stations)
-                {
-                    if (string.IsNullOrWhiteSpace(station.Name)) continue;
-                    if (string.IsNullOrWhiteSpace(station.Url)) continue;
-                    if (string.IsNullOrWhiteSpace(station.StationUUID)) continue;
-                    var item = StationListItem.Parse(station);
-                    if (item != null)
-                        StationItemSource.Add(item);
-                }
-            }
-            Loading = false;
+            Offset = 0;
+            StationItemSource.Clear();
+            await DoLoadAsync();
         }
 
-        public async Task LoadNextPageAsync()
+        public async Task LoadNextAsync()
         {
-            if (Loading) return;
-            Loading = true;
-            _offset += LIMIT;
-            var param = new ListStationsParams()
-            {
-                HideBroken = true,
-                Limit = LIMIT,
-                Offset = (uint)_offset,
-                OrderType = OrderType.Name,
-            };
-            var stations = await RadioBrowserApi.ListAllRadioStationsAsync(param);
+            if (IsLoading) return;
 
-            if (stations != null)
+            Offset += PageSize;
+            await DoLoadAsync();
+        }
+
+        public async Task ReloadAsync()
+        {
+            await LoadFirstAsync();
+        }
+
+        private async Task DoLoadAsync()
+        {
+            IsError = false;
+            IsLoading = true;
+            try
             {
-                foreach (var station in stations)
+                var paramsDic = new Dictionary<string, string>
                 {
-                    if (string.IsNullOrWhiteSpace(station.Name)) continue;
-                    if (string.IsNullOrWhiteSpace(station.Url)) continue;
-                    if (string.IsNullOrWhiteSpace(station.StationUUID)) continue;
-                    var item = StationListItem.Parse(station);
-                    if (item != null)
-                        StationItemSource.Add(item);
+                    { "limit", $"{PageSize}" },
+                    { "offset", $"{Offset}" },
+                    { "hidebroken", "true" },
+                    { "reverse", "true" },
+                    { "order", "clickcount" }
+                };
+                if (SelecteLanguage != null && SelecteLanguage.Tag != "All")
+                {
+                    paramsDic.Add("language", SelecteLanguage.Tag);
+                }
+
+                if (SelecteCountry != null && SelecteCountry.Tag != "All")
+                {
+                    paramsDic.Add("countrycode", SelecteCountry.Tag);
+                }
+                if (SelecteTag != null && SelecteTag.Tag != "All")
+                {
+                    paramsDic.Add("tag", SelecteTag.Tag);
+                }
+                var stations = await RadioBrowserApi.SearchAsync(paramsDic);
+
+                if (stations != null)
+                {
+                    foreach (var station in stations)
+                    {
+                        if (string.IsNullOrWhiteSpace(station.Name)) continue;
+                        if (string.IsNullOrWhiteSpace(station.Url)) continue;
+                        if (string.IsNullOrWhiteSpace(station.StationUUID)) continue;
+                        var item = StationListItem.Parse(station);
+                        if (item != null)
+                            StationItemSource.Add(item);
+                    }
                 }
             }
-            Loading = false;
+            catch (Exception e)
+            {
+                IsError = true;
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                IsLoading = false;
+            }
         }
     }
 }

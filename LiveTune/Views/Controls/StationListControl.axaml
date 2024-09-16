@@ -2,8 +2,10 @@
     x:Class="LiveTune.Views.Controls.StationListControl"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:assets="clr-namespace:LiveTune.Assets"
     xmlns:asyncImageLoader="clr-namespace:AsyncImageLoader;assembly=AsyncImageLoader.Avalonia"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:livetune="using:LiveTune"
     xmlns:local="clr-namespace:LiveTune.Views.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="clr-namespace:LiveTune.Models"
@@ -152,31 +154,31 @@
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
                                 Foreground="#7b7b7b"
-                                Text="站点" />
+                                Text="{x:Static assets:Resources.Station}" />
                             <TextBlock
                                 Grid.Column="1"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Foreground="#7b7b7b"
-                                Text="国家" />
+                                Text="{x:Static assets:Resources.Country}" />
                             <TextBlock
                                 Grid.Column="2"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Foreground="#7b7b7b"
-                                Text="语言" />
+                                Text="{x:Static assets:Resources.Language}" />
                             <TextBlock
                                 Grid.Column="3"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Foreground="#7b7b7b"
-                                Text="点击数" />
+                                Text="{x:Static assets:Resources.ClickCount}" />
                             <TextBlock
                                 Grid.Column="4"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Foreground="#7b7b7b"
-                                Text="投票数" />
+                                Text="{x:Static assets:Resources.Votes}" />
                         </Grid>
                         <Border
                             Name="border"
@@ -216,5 +218,36 @@
                 </Style>
             </ListBox.Styles>
         </ListBox>
+        <livetune:LoadingControl
+            Width="100"
+            Height="100"
+            IsVisible="{Binding $parent[local:StationListControl].IsLoading}" />
+        <Grid Background="#f6f6f6" IsVisible="{Binding $parent[local:StationListControl].IsError}">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="数据加载失败，点击重新加载" />
+                <Button
+                    Margin="0,8,0,0"
+                    HorizontalAlignment="Center"
+                    Click="OnReloadButtonClick"
+                    Cursor="Hand">
+                    <Button.Styles>
+                        <Style Selector="Button">
+                            <Setter Property="Background" Value="Transparent" />
+                        </Style>
+                        <Style Selector="Button:pointerover /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                        </Style>
+                        <Style Selector="Button:pressed /template/ContentPresenter#PART_ContentPresenter">
+                            <Setter Property="Background" Value="Transparent" />
+                        </Style>
+                    </Button.Styles>
+                    <TextBlock
+                        Background="Transparent"
+                        Foreground="#06ce74"
+                        Text="重新加载"
+                        TextDecorations="Underline" />
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>
