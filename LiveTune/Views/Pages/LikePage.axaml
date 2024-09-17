@@ -13,5 +13,11 @@
     <UserControl.DataContext>
         <viewmodels:LikePageViewModel />
     </UserControl.DataContext>
-    <controls:StationListControl ItemSource="{Binding StationItemSource}" />
+    <controls:StationListControl
+        x:Name="PART_StationListControl"
+        IsError="{Binding IsError}"
+        IsLoading="{Binding IsLoading}"
+        ItemSource="{Binding StationItemSource}"
+        LoadMore="OnStationListControlLoadMore"
+        Reload="OnStationListControlReload" />
 </UserControl>

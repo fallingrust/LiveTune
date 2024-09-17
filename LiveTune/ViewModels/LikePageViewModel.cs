@@ -3,13 +3,11 @@ using CommunityToolkit.Mvvm.Messaging;
 using LiveTune.DataBase;
 using LiveTune.Models;
 using LiveTune.Utils;
-using LiveTune.Views.Controls;
 using LiveTune.Views.Interfaces;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
-using static System.Collections.Specialized.BitVector32;
 
 namespace LiveTune.ViewModels
 {

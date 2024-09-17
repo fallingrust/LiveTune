@@ -14,7 +14,20 @@ public partial class LikePage : UserControl, IPage
         InitializeComponent();
         Loaded += OnLikePageLoaded;
     }
-
+    private async void OnStationListControlLoadMore(object? sender, RoutedEventArgs e)
+    {
+        if (DataContext is LikePageViewModel vm)
+        {
+            await vm.LoadNextAsync();
+        }
+    }
+    private async void OnStationListControlReload(object? sender, RoutedEventArgs e)
+    {
+        if (DataContext is LikePageViewModel vm)
+        {
+            await vm.ReloadAsync();
+        }
+    }
     public async Task RefreshAsync()
     {
         if (DataContext is LikePageViewModel vm)
