@@ -122,7 +122,8 @@
                 Margin="0,0,4,0"
                 HorizontalAlignment="Center"
                 Background="Transparent"
-                Cursor="Hand">
+                Cursor="Hand"
+                IsVisible="False">
                 <PathIcon
                     Width="16"
                     Height="16"
