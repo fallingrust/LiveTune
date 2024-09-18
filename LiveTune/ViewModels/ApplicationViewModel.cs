@@ -12,6 +12,7 @@ namespace LiveTune.ViewModels
             if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime application && application.MainWindow != null)
             {
                 application.MainWindow.WindowState = Avalonia.Controls.WindowState.Normal;
+                application.MainWindow.ShowInTaskbar = true;
             }
         }
 

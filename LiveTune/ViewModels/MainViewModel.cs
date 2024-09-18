@@ -54,6 +54,7 @@ public partial class MainViewModel : ViewModelBase
                 CurrentPage = currentPage;
             }
         }
+        _viewStacks.Clear();
     }
 
     public void NavigateBack()

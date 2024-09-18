@@ -25,7 +25,10 @@
 
     <TrayIcon.Icons>
         <TrayIcons>
-            <TrayIcon Icon="/Assets/favicon.ico" ToolTipText="LiveTune">
+            <TrayIcon
+                Command="{Binding ShowMainWindowCommand}"
+                Icon="/Assets/favicon.ico"
+                ToolTipText="LiveTune">
                 <TrayIcon.Menu>
                     <NativeMenu>
                         <NativeMenuItem Command="{Binding ShowMainWindowCommand}" Header="{x:Static assets:Resources.OpenMainWindow}" />

@@ -110,7 +110,6 @@ namespace LiveTune.ViewModels
         {
             if (RadioPlayer != null)
             {
-                RadioPlayer.Stop();
                 RadioPlayer.Dispose();
                 RadioPlayer.StatusChanged -= OnRadioPlayerStatusChanged;
                 RadioPlayer.TimeChanged -= OnRadioPlayerTimeChanged;

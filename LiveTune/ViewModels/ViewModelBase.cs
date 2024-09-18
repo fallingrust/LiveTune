@@ -6,10 +6,7 @@ namespace LiveTune.ViewModels
 {
     public class ViewModelBase : ObservableObject
     {
-        public static implicit operator ViewModelBase(OnlineStationPage v)
-        {
-            throw new NotImplementedException();
-        }
+      
     }
 }
 

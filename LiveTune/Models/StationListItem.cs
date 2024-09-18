@@ -88,7 +88,7 @@ namespace LiveTune.Models
             {
                 StationId = station.StationUUID,
                 ClickCount = station.ClickCount,
-                FaviconUrl = string.IsNullOrWhiteSpace(station.Favicon) || !station.Favicon.StartsWith("http") ? "avares://LiveTune/Assets/favicon.png" : station.Favicon,
+                FaviconUrl = string.IsNullOrWhiteSpace(station.Favicon) || !station.Favicon.StartsWith("http") || station.Favicon.EndsWith(".svg") ? "avares://LiveTune/Assets/favicon.png" : station.Favicon,
                 Language = string.IsNullOrWhiteSpace(language) ? "-" : language,
                 Country = string.IsNullOrWhiteSpace(country) ? "-" : country,
                 StationName = station.Name.Trim(),

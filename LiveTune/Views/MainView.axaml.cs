@@ -40,7 +40,11 @@ public partial class MainView : UserControl
 
     private void OnCloseButtonClick(object? sender, RoutedEventArgs e)
     {
-        Environment.Exit(0);
+        if (TopLevel.GetTopLevel(this) is Window window)
+        {
+            window.WindowState = WindowState.Minimized;
+            window.ShowInTaskbar = false;
+        }
     }
 
     private void OnMinButtonClick(object? sender, RoutedEventArgs e)

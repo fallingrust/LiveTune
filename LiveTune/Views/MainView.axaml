@@ -46,6 +46,7 @@
                         Margin="8"
                         CornerRadius="4"
                         Cursor="Hand"
+                        IsSelected="True"
                         Tag="recommand">
                         <StackPanel Orientation="Horizontal">
                             <PathIcon

@@ -15,8 +15,8 @@ namespace LiveTune.Player
         public VlcRadioPlayer(string url)
         {
             _url = url;
-            _vlc = new LibVLC(true);
-            _media = new Media(_vlc, new Uri(_url));
+            _vlc = new LibVLC(true, "--network-caching=3000");
+            _media = new Media(_vlc, new Uri(_url)); 
             _player = new MediaPlayer(_media);
 
             _player.TimeChanged += OnTimeChanged;
