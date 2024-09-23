@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Input;
 
 namespace LiveTune.ViewModels
@@ -9,11 +10,16 @@ namespace LiveTune.ViewModels
         [RelayCommand]
         private static void ShowMainWindow()
         {
-            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime application && application.MainWindow != null)
+            Dispatcher.UIThread.Post(() =>
             {
-                application.MainWindow.WindowState = Avalonia.Controls.WindowState.Normal;
-                application.MainWindow.ShowInTaskbar = true;
-            }
+                if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime application && application.MainWindow != null)
+                {
+                    if (application.MainWindow.WindowState == Avalonia.Controls.WindowState.Minimized)
+                        application.MainWindow.WindowState = Avalonia.Controls.WindowState.Normal;
+                    if (!application.MainWindow.ShowInTaskbar)
+                        application.MainWindow.ShowInTaskbar = true;
+                }
+            });
         }
 
         [RelayCommand]
