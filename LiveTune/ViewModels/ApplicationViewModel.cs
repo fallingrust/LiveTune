@@ -18,6 +18,7 @@ namespace LiveTune.ViewModels
                         application.MainWindow.WindowState = Avalonia.Controls.WindowState.Normal;
                     if (!application.MainWindow.ShowInTaskbar)
                         application.MainWindow.ShowInTaskbar = true;
+                    application.MainWindow.Activate();
                 }
             });
         }
