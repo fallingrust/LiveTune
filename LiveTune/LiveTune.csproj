@@ -26,6 +26,7 @@
 
 		<!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
 		<PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="$(AvaloniaVersion)" />
+		<PackageReference Include="RadioBrowserSharp" Version="1.0.0" />
 		<PackageReference Include="ZoneTree" Version="1.8.2" />	
 	</ItemGroup>
 
@@ -35,7 +36,6 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\LiveTune.Player\LiveTune.Player.csproj" />
-		<ProjectReference Include="..\RadioBrowserSharp\RadioBrowserSharp\RadioBrowserSharp.csproj" />
 	</ItemGroup>
 
 
